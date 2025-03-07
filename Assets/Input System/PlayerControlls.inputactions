@@ -172,6 +172,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Computer",
+            "id": "189976d6-6573-42f8-a84d-76218651a815",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "8eb8a6ab-bc34-4e9c-8818-b14ae1a10753",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "5d8f50db-5fb8-4c20-b740-0292a1acef8c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "796ef036-7216-40bd-972e-89376a1aaf9f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "de0af1e4-68b3-47b2-b7a4-50d8ad93c1d9",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2924ace5-599e-4993-88d0-cac84bd6c151",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c74979af-5072-411c-b15b-876625743262",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
