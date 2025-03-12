@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class Kargo : MonoBehaviour
 {
     private ObjeBuild objeBuild;
-    [SerializeField] private int assignedIndex = -1; // Kargonun verdiði obje indeksi
-    [SerializeField] private InputActionReference useInput; // Kullaným için InputAction
+    [SerializeField] private int assignedIndex = -1;
+    [SerializeField] private InputActionReference useInput;
 
     private void Start()
     {
@@ -14,13 +14,13 @@ public class Kargo : MonoBehaviour
         if (useInput != null)
         {
             useInput.action.Enable();
-            useInput.action.performed += OnUseInput; // Input'a abone ol
+            useInput.action.performed += OnUseInput;
         }
     }
 
     private void OnUseInput(InputAction.CallbackContext context)
     {
-        if (assignedIndex >= 0 && IsPlayerInRange()) // Oyuncu menzil içindeyse
+        if (assignedIndex >= 0 && IsPlayerInRange())
         {
             Debug.Log($"Kargo etkileþime girildi, obje indeksi: {assignedIndex}");
             objeBuild.SetCurrentObject(assignedIndex);
@@ -29,7 +29,6 @@ public class Kargo : MonoBehaviour
 
     private bool IsPlayerInRange()
     {
-        // Oyuncunun kargo bölgesinde olup olmadýðýný kontrol et
         Collider[] colliders = Physics.OverlapSphere(transform.position, 2f);
         foreach (Collider col in colliders)
         {

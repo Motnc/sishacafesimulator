@@ -10,11 +10,11 @@ public class ObjeBuild : MonoBehaviour
     private bool ObjeOlusturulabilirmi = false;
     public bool EtkilesimVarmi = false;
     public GameObject CurrentObject;
-    private int currentIndex = -1; // Baþlangýçta hiçbir obje seçili deðil
+    private int currentIndex = -1;
 
     void Update()
     {
-        if (CurrentObject == null) return; // Eðer herhangi bir obje seçili deðilse iþlem yapma
+        if (CurrentObject == null) return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -51,7 +51,7 @@ public class ObjeBuild : MonoBehaviour
             CurrentObject = ObjectsPreview[index];
             CurrentObject.SetActive(true);
 
-            // Önizleme rengini deðiþtir
+            
             Renderer objRenderer = CurrentObject.GetComponent<Renderer>();
             if (objRenderer != null)
             {
