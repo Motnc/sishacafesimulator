@@ -9,7 +9,7 @@ public class Highlight : MonoBehaviour
     private List<Renderer> renderers;
 
     [SerializeField]
-    private Color color = Color.white;
+    public Color color = Color.white;
 
     //helper list to cache all the materials ofd this object
     private List<Material> materials;

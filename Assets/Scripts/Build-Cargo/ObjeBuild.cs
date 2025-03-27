@@ -11,10 +11,11 @@ public class ObjeBuild : MonoBehaviour
     public bool EtkilesimVarmi = false;
     public GameObject CurrentObject;
     private int currentIndex = -1;
+    private bool objeYerlestirildi = false;
 
     void Update()
     {
-        if (CurrentObject == null) return;
+        if (CurrentObject == null || objeYerlestirildi) return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -34,13 +35,16 @@ public class ObjeBuild : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && ObjeOlusturulabilirmi)
             {
                 Instantiate(Objects[currentIndex], CurrentObject.transform.position, CurrentObject.transform.rotation);
+                objeYerlestirildi = true;
+                Destroy(CurrentObject);
+                CurrentObject = null;
             }
         }
     }
 
     public void SetCurrentObject(int index)
     {
-        if (index >= 0 && index < ObjectsPreview.Length)
+        if (index >= 0 && index < ObjectsPreview.Length && !objeYerlestirildi)
         {
             if (CurrentObject != null)
             {
@@ -51,7 +55,6 @@ public class ObjeBuild : MonoBehaviour
             CurrentObject = ObjectsPreview[index];
             CurrentObject.SetActive(true);
 
-            
             Renderer objRenderer = CurrentObject.GetComponent<Renderer>();
             if (objRenderer != null)
             {
