@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< HEAD
   - PlacementPoint
+=======
+  - GameManager
+  - Platform
+>>>>>>> origin/Motnc
   layers:
   - Default
   - TransparentFX
