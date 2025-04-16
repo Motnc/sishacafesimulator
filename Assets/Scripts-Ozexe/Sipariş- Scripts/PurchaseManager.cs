@@ -2,26 +2,40 @@ using UnityEngine;
 
 public class PurchaseManager : MonoBehaviour
 {
+    public GameObject kargoKapaliPrefab; // Kapalý kargo prefab'ý
+    public GameObject kargoAcikPrefab;   // Açýk kargo prefab'ý
+
     public GameObject nargilePrefab;
     public GameObject masaPrefab;
     public GameObject sandalyePrefab;
 
-    public Transform nargileSpawnPoint;
-    public Transform masaSpawnPoint;
-    public Transform sandalyeSpawnPoint;
+    public Transform spawnPoint; // Tüm kargolar için ortak spawn noktasý
 
     public void BuyNargile()
     {
-        Instantiate(nargilePrefab, nargileSpawnPoint.position, Quaternion.identity);
+        SpawnKargo(nargilePrefab);
     }
 
     public void BuyMasa()
     {
-        Instantiate(masaPrefab, masaSpawnPoint.position, Quaternion.identity);
+        SpawnKargo(masaPrefab);
     }
 
     public void BuySandalye()
     {
-        Instantiate(sandalyePrefab, sandalyeSpawnPoint.position, Quaternion.identity);
+        SpawnKargo(sandalyePrefab);
+    }
+
+    void SpawnKargo(GameObject productPrefab)
+    {
+        // Kapalý kargo prefab'ýný oluþtur
+        GameObject kapaliKargo = Instantiate(kargoKapaliPrefab, spawnPoint.position, Quaternion.identity);
+
+        // Kargo içindeki ürün için referans sakla
+        KargoController kargoController = kapaliKargo.GetComponent<KargoController>();
+        if (kargoController != null)
+        {
+            kargoController.SetProduct(productPrefab);
+        }
     }
 }
