@@ -7,6 +7,8 @@ public class Kargo : MonoBehaviour
     [SerializeField] private int assignedIndex = -1;
     [SerializeField] private InputActionReference useInput;
 
+    private bool used = false;
+
     private void Start()
     {
         objeBuild = GameObject.FindWithTag("GameManager").GetComponent<ObjeBuild>();
@@ -20,10 +22,11 @@ public class Kargo : MonoBehaviour
 
     private void OnUseInput(InputAction.CallbackContext context)
     {
-        if (assignedIndex >= 0 && IsPlayerInRange())
+        if (!used && assignedIndex >= 0 && IsPlayerInRange())
         {
             Debug.Log($"Kargo etkileþime girildi, obje indeksi: {assignedIndex}");
             objeBuild.SetCurrentObject(assignedIndex);
+            used = true;
         }
     }
 
@@ -44,7 +47,7 @@ public class Kargo : MonoBehaviour
     {
         if (useInput != null)
         {
-            useInput.action.performed -= OnUseInput; // Aboneliði kaldýr
+            useInput.action.performed -= OnUseInput;
             useInput.action.Disable();
         }
     }
