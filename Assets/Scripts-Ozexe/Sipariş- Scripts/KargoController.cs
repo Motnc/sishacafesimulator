@@ -2,38 +2,58 @@ using UnityEngine;
 
 public class KargoController : MonoBehaviour
 {
-    public GameObject kargoAcikPrefab; // Açýk kargo hali
-    private GameObject productPrefab;  // Ýçindeki ürün
+    public GameObject kargoAcikPrefab; // Açýk koli prefab
+    private GameObject productPrefab;  // Ürün prefab
 
     private bool isOpened = false;
+    private GameObject player;
+    public float acmaMesafesi = 3f; // Oyuncunun açma mesafesi
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public void SetProduct(GameObject product)
     {
         productPrefab = product;
     }
 
-    void Update()
+    private void Update()
     {
         if (!isOpened && Input.GetKeyDown(KeyCode.K))
         {
-            OpenKargo();
+            if (player != null && Vector3.Distance(transform.position, player.transform.position) <= acmaMesafesi)
+            {
+                OpenKargo();
+            }
         }
     }
 
-    void OpenKargo()
+    private void OpenKargo()
     {
         isOpened = true;
 
-        // Kapalý kargoyu açýk kargo ile deðiþtir
-        GameObject acikKargo = Instantiate(kargoAcikPrefab, transform.position, Quaternion.identity);
+        // Kapalý koliyi yok etmeden önce pozisyonu ve rotasyonu al
+        Vector3 spawnPosition = transform.position;
+        Quaternion spawnRotation = transform.rotation;
 
-        // Ürünü içinden çýkar ve aktif et
-        if (productPrefab != null)
+        // Açýk koliyi sahneye ekle
+        GameObject acikKargo = Instantiate(kargoAcikPrefab, spawnPosition, spawnRotation);
+
+        // Açýk koli prefab'ýnýn içinde "UrunYeri" isimli boþ bir transform olmalý!
+        Transform urunYeri = acikKargo.transform.Find("UrunYeri");
+
+        if (urunYeri != null && productPrefab != null)
         {
-            Instantiate(productPrefab, acikKargo.transform.position + Vector3.up * 0.5f, Quaternion.identity);
+            Instantiate(productPrefab, urunYeri.position, urunYeri.rotation, urunYeri);
+        }
+        else if (productPrefab != null) // Eðer UrunYeri bulunamazsa, kolinin üstüne býrak.
+        {
+            Instantiate(productPrefab, spawnPosition + Vector3.up * 0.5f, Quaternion.identity);
         }
 
-        // Eski kapalý kargoyu yok et
+        // Kapalý koliyi sahneden sil
         Destroy(gameObject);
     }
 }
