@@ -149,11 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objects:
-  - {fileID: 2024349689202152079, guid: 67ff098ad2115ec4e95d4ba6d30391d8, type: 3}
-  - {fileID: 4295516511982699707, guid: 568f27b97f1da4e41ab60984cf3079ce, type: 3}
+  - {fileID: 3513336795335090075, guid: 63cff5318764c9944962804371305c0e, type: 3}
   ObjectsPreview:
-  - {fileID: 5110787612283269025}
-  - {fileID: 6553637886257867415}
+  - {fileID: 3513336795335090075, guid: 63cff5318764c9944962804371305c0e, type: 3}
   EtkilesimVarmi: 0
   CurrentObject: {fileID: 0}
 --- !u!4 &249237940
@@ -568,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24283cdc3819164f9fb77e4858248a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assignedIndex: 1
+  assignedIndex: 0
   useInput: {fileID: -2917462789188135289, guid: 2412d134db64817488d37379d7d06215, type: 3}
 --- !u!65 &1212687004
 BoxCollider:
@@ -598,7 +596,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212687001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -790,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &383782688638471930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -924,16 +922,6 @@ MeshRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3915987649045855186, guid: ebcf8dda4b7566b4faa41d6b20d00fe8, type: 3}
   m_PrefabInstance: {fileID: 8698624755612587667}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5110787612283269025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4158069246202723313, guid: ebcf8dda4b7566b4faa41d6b20d00fe8, type: 3}
-  m_PrefabInstance: {fileID: 8698624755612587667}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6553637886257867415 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7265213945236464716, guid: 381cf7337bc65894d9b604c448664d78, type: 3}
-  m_PrefabInstance: {fileID: 383782688638471930}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &7110754896230479145
 Rigidbody:
@@ -1079,9 +1067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9952d2fda48d42880d1e0ab3a2967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGambling: 0
-  gamblingColor: {r: 0, g: 1, b: 0.4323182, a: 1}
-  normalColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &7928253856089986876
 MonoBehaviour:
   m_ObjectHideFlags: 0
