@@ -27,8 +27,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
+<<<<<<< HEAD
       "version": "1.8.19",
       "depth": 1,
+=======
+      "version": "1.8.18",
+      "depth": 2,
+>>>>>>> origin/Level
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
@@ -184,7 +189,7 @@
       }
     },
     "com.unity.searcher": {
-      "version": "4.9.3",
+      "version": "4.9.2",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -203,14 +208,15 @@
       "source": "builtin",
       "dependencies": {
         "com.unity.render-pipelines.core": "17.0.3",
-        "com.unity.searcher": "4.9.3"
+        "com.unity.searcher": "4.9.2"
       }
     },
     "com.unity.splines": {
-      "version": "2.7.2",
+      "version": "2.6.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
+        "com.unity.ugui": "1.0.0",
         "com.unity.mathematics": "1.2.1",
         "com.unity.settings-manager": "1.0.3"
       },
