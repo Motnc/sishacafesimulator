@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objects:
-  - {fileID: 3513336795335090075, guid: 63cff5318764c9944962804371305c0e, type: 3}
+  - {fileID: 2012241467788262155, guid: 4534a7caf0f03574fbc1960bd5493580, type: 3}
   ObjectsPreview:
-  - {fileID: 3513336795335090075, guid: 63cff5318764c9944962804371305c0e, type: 3}
+  - {fileID: 2012241467788262155, guid: 4534a7caf0f03574fbc1960bd5493580, type: 3}
   EtkilesimVarmi: 0
   CurrentObject: {fileID: 0}
 --- !u!4 &249237940
@@ -596,7 +596,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212687001}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -777,7 +777,6 @@ GameObject:
   - component: {fileID: 7810490110584834964}
   - component: {fileID: 7928253856089986873}
   - component: {fileID: 2454320099206652002}
-  - component: {fileID: 7928253856089986876}
   - component: {fileID: 7928253856089986874}
   - component: {fileID: 1597109202500327729}
   - component: {fileID: 7110754896230479145}
@@ -1067,21 +1066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9952d2fda48d42880d1e0ab3a2967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7928253856089986876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30860259399840244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8717afababbd27542ba6bf0285c4b72c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderers:
-  - {fileID: 2454320099206652002}
-  color: {r: 1, g: 1, b: 1, a: 0.40392157}
 --- !u!1001 &8698624755612587667
 PrefabInstance:
   m_ObjectHideFlags: 0
