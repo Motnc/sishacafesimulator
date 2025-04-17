@@ -11,7 +11,7 @@ public class MoveToTableState : BaseState<CustomerStateData>
 
     public override void OnUpdate()
     {
-        if (!StateData.Agent.pathPending && StateData.Agent.remainingDistance < 0.2f)
+        if (!StateData.Agent.pathPending && StateData.Agent.remainingDistance < 1f)
         {
             StateData.Animator.SetBool("isWalking", false);
             StateMachineHandler.AddState(new SitToTableState(), StateData);
