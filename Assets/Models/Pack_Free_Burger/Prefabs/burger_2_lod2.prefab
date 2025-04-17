@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7703790732113137438
+--- !u!1 &2224290734680997080
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5911212678784310180}
-  - component: {fileID: 7392307104523950038}
-  - component: {fileID: 3415949553098030646}
-  - component: {fileID: 8343065209128758674}
+  - component: {fileID: 6470069631986136305}
+  - component: {fileID: 8213612005198482483}
+  - component: {fileID: 5249366069237662789}
   m_Layer: 0
-  m_Name: KargoKAPALI
+  m_Name: burger_2_lod2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5911212678784310180
+--- !u!4 &6470069631986136305
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7703790732113137438}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.015, y: 0.022, z: -6.65}
-  m_LocalScale: {x: 1.3877946, y: 1.3877946, z: 1.3877946}
+  m_GameObject: {fileID: 2224290734680997080}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7392307104523950038
+--- !u!33 &8213612005198482483
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7703790732113137438}
-  m_Mesh: {fileID: 2775951614565820139, guid: 1c0c5d1f80cda4446977d7ca784b420a, type: 3}
---- !u!23 &3415949553098030646
+  m_GameObject: {fileID: 2224290734680997080}
+  m_Mesh: {fileID: -417712213986103672, guid: dae78bb202b63f148a1adb67c85e5941, type: 3}
+--- !u!23 &5249366069237662789
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7703790732113137438}
+  m_GameObject: {fileID: 2224290734680997080}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,13 +58,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 13021a53fade2024181561c8526a2848, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,16 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8343065209128758674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7703790732113137438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efd850f6eaeaa349865c4dda639f80a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kargoAcikPrefab: {fileID: 1037631228212971411, guid: 3c90193a7a1cdc14abbe6032dc11f470, type: 3}

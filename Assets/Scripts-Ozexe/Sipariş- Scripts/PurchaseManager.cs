@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class PurchaseManager : MonoBehaviour
 {
-    public GameObject kargoKapaliPrefab; // Kapalý kargo prefab'ý
-    public GameObject kargoAcikPrefab;   // Açýk kargo prefab'ý
-
+    public GameObject kargoKapaliPrefab;
     public GameObject nargilePrefab;
     public GameObject masaPrefab;
     public GameObject sandalyePrefab;
+    public GameObject hamburgerPrefab;
+    public GameObject cayPrefab;
 
-    public Transform spawnPoint; // Tüm kargolar için ortak spawn noktasý
+    public Transform kargoSpawnPoint;  // Koli için ortak spawn noktasý
+    public Transform hamburgerSpawnPoint; // Hamburger için özel nokta
+    public Transform caySpawnPoint;    // Çay için özel nokta
 
     public void BuyNargile()
     {
@@ -26,16 +28,29 @@ public class PurchaseManager : MonoBehaviour
         SpawnKargo(sandalyePrefab);
     }
 
-    void SpawnKargo(GameObject productPrefab)
+    public void BuyHamburger()
     {
-        // Kapalý kargo prefab'ýný oluþtur
-        GameObject kapaliKargo = Instantiate(kargoKapaliPrefab, spawnPoint.position, Quaternion.identity);
+        SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
+    }
 
-        // Kargo içindeki ürün için referans sakla
+    public void BuyCay()
+    {
+        SpawnDirect(cayPrefab, caySpawnPoint);
+    }
+
+    private void SpawnKargo(GameObject productPrefab)
+    {
+        GameObject kapaliKargo = Instantiate(kargoKapaliPrefab, kargoSpawnPoint.position, Quaternion.identity);
         KargoController kargoController = kapaliKargo.GetComponent<KargoController>();
         if (kargoController != null)
         {
             kargoController.SetProduct(productPrefab);
         }
     }
+
+    private void SpawnDirect(GameObject productPrefab, Transform spawnPoint)
+    {
+        Instantiate(productPrefab, spawnPoint.position, Quaternion.identity);
+    }
 }
+
