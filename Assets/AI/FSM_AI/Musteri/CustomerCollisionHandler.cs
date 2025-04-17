@@ -4,7 +4,7 @@ using UnityEngine;
 public class CustomerCollisionHandler : MonoBehaviour
 {
     private CustomerFSMController controller;
-    public Transform OrderPos;
+    //public Transform OrderPos;
 
     private void Start()
     {
@@ -29,7 +29,8 @@ public class CustomerCollisionHandler : MonoBehaviour
                 controller.Handler.AddState(new LeaveState(), controller.Data);
             }
 
-            collision.transform.position = OrderPos.position;
+            //collision.transform.position = OrderPos.position;
+            Destroy(collision.gameObject);
         }
     }
 }

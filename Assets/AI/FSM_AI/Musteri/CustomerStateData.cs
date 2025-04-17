@@ -21,5 +21,7 @@ public class CustomerStateData : IBaseStateData
 
     public System.Action<string> OnOrderSelected;
 
+    public CustomerFSMController FSMController;
+
 
 }
