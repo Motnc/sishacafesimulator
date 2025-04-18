@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6707149475596137665
+--- !u!1 &1167036508629953184
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2902587107644780208}
-  - component: {fileID: 8143018971211681409}
-  - component: {fileID: 3605763295281260611}
-  - component: {fileID: 2106165914708561295}
-  - component: {fileID: 6393560151627021567}
-  - component: {fileID: -6712619510454345541}
-  - component: {fileID: 8596369846357253831}
+  - component: {fileID: 4840414761621322588}
+  - component: {fileID: 9106814097179511725}
+  - component: {fileID: 5093672603371727791}
+  - component: {fileID: 4590740291363982144}
+  - component: {fileID: 2758220060579036412}
+  - component: {fileID: 1775036406022693547}
+  - component: {fileID: 8309711695493613768}
   m_Layer: 6
-  m_Name: burger_1_lod0
+  m_Name: Nargile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2902587107644780208
+--- !u!4 &4840414761621322588
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
+  m_GameObject: {fileID: 1167036508629953184}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.017, y: 1.117, z: 0.81}
-  m_LocalScale: {x: 0.25591016, y: 0.25591016, z: 0.25591016}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.409, y: 1.1144676, z: -6.2462378}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8143018971211681409
+--- !u!33 &9106814097179511725
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
-  m_Mesh: {fileID: 3782715142596297604, guid: dae78bb202b63f148a1adb67c85e5941, type: 3}
---- !u!23 &3605763295281260611
+  m_GameObject: {fileID: 1167036508629953184}
+  m_Mesh: {fileID: 5185607202078517236, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+--- !u!23 &5093672603371727791
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
+  m_GameObject: {fileID: 1167036508629953184}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -68,7 +68,13 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 13021a53fade2024181561c8526a2848, type: 2}
+  - {fileID: -6629797300637803691, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+  - {fileID: -6478536213147159724, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+  - {fileID: -6087771358165109452, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+  - {fileID: 4874126678125670354, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+  - {fileID: 9185737683893222716, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+  - {fileID: -3846018093981099296, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
+  - {fileID: -876546973899608171, guid: d1d22a0753866974da4f6c1abb205ec7, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,34 +96,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2106165914708561295
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.602026, y: 0.46487048, z: 0.651163}
-  m_Center: {x: -0.008534595, y: 0.23277669, z: 0.008890286}
---- !u!54 &6393560151627021567
+--- !u!54 &4590740291363982144
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
+  m_GameObject: {fileID: 1167036508629953184}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -134,32 +119,53 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6712619510454345541
-MonoBehaviour:
+--- !u!65 &2758220060579036412
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
+  m_GameObject: {fileID: 1167036508629953184}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12d95652c0fa91544a6c371dafac4c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8596369846357253831
+  serializedVersion: 3
+  m_Size: {x: 0.23935877, y: 0.6695473, z: 0.23935877}
+  m_Center: {x: 0, y: 0.33564425, z: 0}
+--- !u!114 &1775036406022693547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707149475596137665}
+  m_GameObject: {fileID: 1167036508629953184}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7608cb853349d54cb125b7d4e940c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodName: Hamburger
+  FoodName: Nargile
+--- !u!114 &8309711695493613768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167036508629953184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d95652c0fa91544a6c371dafac4c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
