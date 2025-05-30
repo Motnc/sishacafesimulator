@@ -150,8 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Objects:
   - {fileID: 2012241467788262155, guid: 4534a7caf0f03574fbc1960bd5493580, type: 3}
+  - {fileID: 1300479645450085688, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
   ObjectsPreview:
   - {fileID: 2012241467788262155, guid: 4534a7caf0f03574fbc1960bd5493580, type: 3}
+  - {fileID: 1300479645450085688, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
   EtkilesimVarmi: 0
   CurrentObject: {fileID: 0}
 --- !u!4 &249237940
@@ -922,6 +924,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3915987649045855186, guid: ebcf8dda4b7566b4faa41d6b20d00fe8, type: 3}
   m_PrefabInstance: {fileID: 8698624755612587667}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!54 &7110754896230479145
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -949,6 +952,65 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+=======
+--- !u!1001 &7176016015092880192
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1300479645450085688, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_Name
+      value: ATH Trak Nargile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.1243124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1787202
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.2588716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996650226671242840, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+>>>>>>> origin/Motnc
 --- !u!1001 &7394708045722799710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1134,4 +1196,8 @@ SceneRoots:
   - {fileID: 406719851}
   - {fileID: 249237940}
   - {fileID: 1212687007}
+<<<<<<< HEAD
   - {fileID: 7810490110584834964}
+=======
+  - {fileID: 7176016015092880192}
+>>>>>>> origin/Motnc

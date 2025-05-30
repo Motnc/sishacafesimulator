@@ -3936,7 +3936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f179001f517fc034a9dbfbec8bf551e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOccupied: 1
 --- !u!1001 &127173251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14804,30 +14803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d097195f03f5774e9fc94b0e2c8a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
+  normalNpcPrefab: {fileID: 0}
+  gamblingNpcPrefab: {fileID: 0}
   checkInterval: 5
-  tables:
-  - table: {fileID: 6362872466061179478}
-    seats:
-    - {fileID: 7051294966992376149}
-    - {fileID: 267500292}
-    - {fileID: 1300396581}
-    - {fileID: 107879457}
-    moneySpawnPoint: {fileID: 992343437}
-  - table: {fileID: 233891145}
-    seats:
-    - {fileID: 863910378}
-    - {fileID: 967721266}
-    - {fileID: 1053222786}
-    - {fileID: 2027454702}
-    moneySpawnPoint: {fileID: 1352335015}
-  - table: {fileID: 684726605}
-    seats:
-    - {fileID: 1447128781}
-    - {fileID: 2121466418}
-    - {fileID: 1519884131}
-    - {fileID: 631535352}
-    moneySpawnPoint: {fileID: 829601374}
   exitPoint: {fileID: 804122565}
   moneyPrefab: {fileID: 7404957865196860276, guid: dbe0368bf18509743b63c2da6001413a, type: 3}
 --- !u!4 &444619800
@@ -18006,7 +17984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f179001f517fc034a9dbfbec8bf551e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOccupied: 1
 --- !u!23 &573556042
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37429,7 +37406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f179001f517fc034a9dbfbec8bf551e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOccupied: 1
 --- !u!1001 &1274302827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46373,6 +46349,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: adb625d2105703a49b174575da97a18a, type: 3}
   m_PrefabInstance: {fileID: 1571206982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1573438572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573438574}
+  - component: {fileID: 1573438573}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1573438573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573438572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 760f41c0e5995d24896b341d8ef8c4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objects:
+  - {fileID: 1300479645450085688, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+  - {fileID: 626714961305485104, guid: c1039049875128049a36d4b03b7e78d7, type: 3}
+  ObjectsPreview:
+  - {fileID: 1300479645450085688, guid: c5926389933cc064f963e52d9b4e36c3, type: 3}
+  - {fileID: 626714961305485104, guid: c1039049875128049a36d4b03b7e78d7, type: 3}
+  EtkilesimVarmi: 0
+  CurrentObject: {fileID: 0}
+--- !u!4 &1573438574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573438572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1175.5726, y: 60.999855, z: 685.23145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1573744081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409908, guid: f4de9305fc96ca142ae3a5b13c07430d, type: 3}
@@ -64964,30 +64992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d097195f03f5774e9fc94b0e2c8a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
+  normalNpcPrefab: {fileID: 0}
+  gamblingNpcPrefab: {fileID: 0}
   checkInterval: 2
-  tables:
-  - table: {fileID: 7234226477583305368}
-    seats:
-    - {fileID: 4646147447106771864}
-    - {fileID: 1248596781432712183}
-    - {fileID: 3115059044369513640}
-    - {fileID: 2670815186803974985}
-    moneySpawnPoint: {fileID: 6278697735903101031}
-  - table: {fileID: 830861813}
-    seats:
-    - {fileID: 1436291865}
-    - {fileID: 147980274}
-    - {fileID: 542312800}
-    - {fileID: 2039725511}
-    moneySpawnPoint: {fileID: 452525313}
-  - table: {fileID: 1368806338}
-    seats:
-    - {fileID: 1398118248}
-    - {fileID: 766499615}
-    - {fileID: 1518839673}
-    - {fileID: 2126483412}
-    moneySpawnPoint: {fileID: 481051924}
   exitPoint: {fileID: 804122565}
   moneyPrefab: {fileID: 7404957865196860276, guid: dbe0368bf18509743b63c2da6001413a, type: 3}
 --- !u!33 &5998361598165363046
@@ -65443,3 +65450,4 @@ SceneRoots:
   - {fileID: 2127034726}
   - {fileID: 942684295}
   - {fileID: 1628154251}
+  - {fileID: 1573438574}
