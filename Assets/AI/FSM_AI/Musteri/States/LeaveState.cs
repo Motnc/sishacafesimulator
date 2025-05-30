@@ -5,9 +5,7 @@ public class LeaveState : BaseState<CustomerStateData>
 {
     public override void OnEnter()
     {
-        StateData.Animator.SetBool("isSitting", false);
         StateData.Agent.SetDestination(StateData.ExitTarget.position);
-        StateData.Animator.SetBool("isWalking", true);
     }
 
     public override void OnUpdate()
