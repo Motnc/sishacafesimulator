@@ -17,8 +17,8 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         // Sahnedeki tüm TableModeTrigger'larý bul ve içindeki TableGroup referanslarýný al
-        TableModeTrigger[] triggers = FindObjectsOfType<TableModeTrigger>();
-        
+        TableModeTrigger[] triggers = Object.FindObjectsByType<TableModeTrigger>(FindObjectsSortMode.None);
+
         foreach (var trigger in triggers)
         {
             if (trigger.tableGroup != null)
