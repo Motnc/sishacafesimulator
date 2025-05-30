@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject normalNpcPrefab;
-    public GameObject gamblingNpcPrefab;
+    public GameObject npcPrefab;
     public float checkInterval = 1f;
 
+    public List<TableGroup> tables = new List<TableGroup>();
     public Transform exitPoint;
     public GameObject moneyPrefab;
 
-    private List<TableGroup> tables = new();
     private Dictionary<TableGroup, TableSession> tableSessions = new();
 
     void Start()
     {
+<<<<<<< HEAD
         // Sahnedeki tüm TableModeTrigger'larý bul ve içindeki TableGroup referanslarýný al
         TableModeTrigger[] triggers = Object.FindObjectsByType<TableModeTrigger>(FindObjectsSortMode.None);
 
@@ -27,6 +27,8 @@ public class Spawner : MonoBehaviour
             }
         }
 
+=======
+>>>>>>> origin/ozexe.outro
         StartCoroutine(SpawnNPCIfAvailable());
     }
 
@@ -43,19 +45,17 @@ public class Spawner : MonoBehaviour
                         emptySeats++;
                 }
 
+                // Masa tamamen boþsa (örneðin 4 koltuk varsa ve hepsi boþsa)
                 if (emptySeats == table.seats.Length)
                 {
+                    // Yeni masa oturumu oluþtur
                     TableSession session = new TableSession(table);
                     tableSessions[table] = session;
-
-                    GameObject prefabToUse = (table.mode == TableMode.Gambling)
-                        ? gamblingNpcPrefab
-                        : normalNpcPrefab;
 
                     for (int i = 0; i < table.seats.Length; i++)
                     {
                         Seat seat = table.seats[i];
-                        GameObject npc = Instantiate(prefabToUse, transform.position, Quaternion.identity);
+                        GameObject npc = Instantiate(npcPrefab, transform.position, Quaternion.identity);
                         CustomerFSMController controller = npc.GetComponent<CustomerFSMController>();
 
                         seat.Occupy();
@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour
                         controller.AssignSession(session);
                     }
 
-                    break;
+                    break; // Bu masa doldu, sýradaki frame'e geç
                 }
             }
 
