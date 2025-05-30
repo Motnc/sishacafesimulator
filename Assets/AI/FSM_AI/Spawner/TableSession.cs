@@ -1,50 +1,57 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TableSession
 {
     public TableGroup TableGroup { get; private set; }
     public List<CustomerFSMController> Customers { get; private set; } = new List<CustomerFSMController>();
 
+    private Dictionary<CustomerFSMController, string> orders = new Dictionary<CustomerFSMController, string>();
+    private const int MaxCustomers = 4;
+
+    public bool IsGambling => TableGroup.mode == TableMode.Gambling;
+
     public TableSession(TableGroup tableGroup)
     {
         TableGroup = tableGroup;
     }
 
+    public void RegisterOrder(CustomerFSMController customer, string order)
+    {
+        if (!orders.ContainsKey(customer))
+            orders.Add(customer, order);
+        else
+            orders[customer] = order;
+
+        Debug.Log($"Customer {customer.name} ordered {order}");
+    }
+
     public void RegisterCustomer(CustomerFSMController customer)
     {
-        if (!Customers.Contains(customer))
+        if (!Customers.Contains(customer) && Customers.Count < MaxCustomers)
         {
             Customers.Add(customer);
         }
     }
 
-    public void RegisterOrder(CustomerFSMController customer, string order)
-    {
-        // Sipariþ kaydý yapýlabilir
-    }
-
     public void NotifyCustomerLeft(CustomerFSMController customer)
     {
         Customers.Remove(customer);
-        // Müþteri masadan ayrýldýðýnda yapýlacak iþlemler
+        customer.Data.IsOrderDelivered = false;
     }
 
     public void RegisterOrderDelivered(CustomerFSMController customerInSession)
     {
-        // Sipariþ teslim edildiðinde bu fonksiyon çaðrýlacak
         customerInSession.Data.IsOrderDelivered = true;
 
-        // Tüm sipariþler teslim olduysa, müþteriye yemeðe baþlama zamaný ver
         if (AreAllOrdersDelivered())
         {
             foreach (var customer in Customers)
             {
-                customer.StartEating();  // Burada yemeðe baþlatýyoruz
+                customer.StartEating();
             }
         }
     }
-
 
     public bool AreAllOrdersDelivered()
     {
@@ -55,6 +62,14 @@ public class TableSession
         }
         return true;
     }
+
+    public bool IsAvailable()
+    {
+        return Customers.Count < MaxCustomers;
+    }
+
+    public bool IsFull()
+    {
+        return Customers.Count == MaxCustomers;
+    }
 }
-
-

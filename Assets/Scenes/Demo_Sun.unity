@@ -10501,6 +10501,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 319218522}
+  - component: {fileID: 319218524}
+  - component: {fileID: 319218523}
   m_Layer: 0
   m_Name: MasaSandalye (2)
   m_TagString: Untagged
@@ -10530,6 +10532,48 @@ Transform:
   - {fileID: 236922883}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 36.527, z: 0}
+--- !u!65 &319218523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319218521}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 1, z: 4}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &319218524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319218521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c36a0d038af842bbfca4c47fb0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroup:
+    table: {fileID: 1368806338}
+    seats:
+    - {fileID: 1398118248}
+    - {fileID: 1398118248}
+    - {fileID: 1518839673}
+    - {fileID: 2126483412}
+    moneySpawnPoint: {fileID: 481051924}
+    mode: 0
 --- !u!4 &320186462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 439258, guid: fa70be7da44648d479a763b18c75bdcc, type: 3}
@@ -14778,30 +14822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d097195f03f5774e9fc94b0e2c8a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
+  normalNpcPrefab: {fileID: 0}
+  gamblingNpcPrefab: {fileID: 0}
   checkInterval: 5
-  tables:
-  - table: {fileID: 6362872466061179478}
-    seats:
-    - {fileID: 7051294966992376149}
-    - {fileID: 267500292}
-    - {fileID: 1300396581}
-    - {fileID: 107879457}
-    moneySpawnPoint: {fileID: 992343437}
-  - table: {fileID: 233891145}
-    seats:
-    - {fileID: 863910378}
-    - {fileID: 967721266}
-    - {fileID: 1053222786}
-    - {fileID: 2027454702}
-    moneySpawnPoint: {fileID: 1352335015}
-  - table: {fileID: 684726605}
-    seats:
-    - {fileID: 1447128781}
-    - {fileID: 2121466418}
-    - {fileID: 1519884131}
-    - {fileID: 631535352}
-    moneySpawnPoint: {fileID: 829601374}
   exitPoint: {fileID: 804122565}
   moneyPrefab: {fileID: 7404957865196860276, guid: dbe0368bf18509743b63c2da6001413a, type: 3}
 --- !u!4 &444619800
@@ -24099,6 +24122,8 @@ GameObject:
   - component: {fileID: 830861816}
   - component: {fileID: 830861815}
   - component: {fileID: 830861814}
+  - component: {fileID: 830861818}
+  - component: {fileID: 830861817}
   m_Layer: 0
   m_Name: Kare Masa
   m_TagString: Untagged
@@ -24196,6 +24221,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830861812}
   m_Mesh: {fileID: 6953259602721680387, guid: 4c3f0770bac0398468f0038d54653470, type: 3}
+--- !u!65 &830861817
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830861812}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 1, z: 4}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &830861818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830861812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c36a0d038af842bbfca4c47fb0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroup:
+    table: {fileID: 830861813}
+    seats:
+    - {fileID: 1436291865}
+    - {fileID: 147980274}
+    - {fileID: 542312800}
+    - {fileID: 2039725511}
+    moneySpawnPoint: {fileID: 452525313}
+    mode: 0
 --- !u!1 &834597056
 GameObject:
   m_ObjectHideFlags: 0
@@ -43052,6 +43119,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 452554, guid: c5fb928f8d763d6488479f5f708e9b14, type: 3}
   m_PrefabInstance: {fileID: 327595478}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1480913774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480913776}
+  - component: {fileID: 1480913775}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1480913775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480913774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90edf096af7886243bd3bb24c5726fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroups:
+  - table: {fileID: 7234226477583305368}
+    seats:
+    - {fileID: 4646147447106771864}
+    - {fileID: 1248596781432712183}
+    - {fileID: 3115059044369513640}
+    - {fileID: 2670815186803974985}
+    moneySpawnPoint: {fileID: 6278697735903101031}
+    mode: 0
+--- !u!4 &1480913776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480913774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1167.334, y: 53.755074, z: 668.66125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1483422946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47685,7 +47805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7764520169566723052, guid: ac6ec3c87c2586840a4662109de69136, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1172.8
+      value: 1177.44
       objectReference: {fileID: 0}
     - target: {fileID: 7764520169566723052, guid: ac6ec3c87c2586840a4662109de69136, type: 3}
       propertyPath: m_LocalPosition.y
@@ -47693,7 +47813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7764520169566723052, guid: ac6ec3c87c2586840a4662109de69136, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 676.56085
+      value: 673.81
       objectReference: {fileID: 0}
     - target: {fileID: 7764520169566723052, guid: ac6ec3c87c2586840a4662109de69136, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64607,6 +64727,8 @@ GameObject:
   - component: {fileID: 1888762701119024253}
   - component: {fileID: 5634396745330810074}
   - component: {fileID: 1222481186411895804}
+  - component: {fileID: 7234226477583305370}
+  - component: {fileID: 7234226477583305369}
   m_Layer: 0
   m_Name: Kare Masa
   m_TagString: Untagged
@@ -64728,30 +64850,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d097195f03f5774e9fc94b0e2c8a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
-  checkInterval: 2
-  tables:
-  - table: {fileID: 7234226477583305368}
-    seats:
-    - {fileID: 4646147447106771864}
-    - {fileID: 1248596781432712183}
-    - {fileID: 3115059044369513640}
-    - {fileID: 2670815186803974985}
-    moneySpawnPoint: {fileID: 6278697735903101031}
-  - table: {fileID: 830861813}
-    seats:
-    - {fileID: 1436291865}
-    - {fileID: 147980274}
-    - {fileID: 542312800}
-    - {fileID: 2039725511}
-    moneySpawnPoint: {fileID: 452525313}
-  - table: {fileID: 1368806338}
-    seats:
-    - {fileID: 1398118248}
-    - {fileID: 766499615}
-    - {fileID: 1518839673}
-    - {fileID: 2126483412}
-    moneySpawnPoint: {fileID: 481051924}
+  normalNpcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
+  gamblingNpcPrefab: {fileID: 6918281249685717544, guid: 6477f7ab449bc99408a588182b3d370f, type: 3}
+  checkInterval: 10
   exitPoint: {fileID: 804122565}
   moneyPrefab: {fileID: 7404957865196860276, guid: dbe0368bf18509743b63c2da6001413a, type: 3}
 --- !u!33 &5998361598165363046
@@ -64956,6 +65057,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8315776829970630518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7234226477583305369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4371354357755678284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c36a0d038af842bbfca4c47fb0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroup:
+    table: {fileID: 1812733506804772821}
+    seats:
+    - {fileID: 4646147447106771864}
+    - {fileID: 1248596781432712183}
+    - {fileID: 3115059044369513640}
+    - {fileID: 2670815186803974985}
+    moneySpawnPoint: {fileID: 6278697735903101031}
+    mode: 0
+--- !u!65 &7234226477583305370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4371354357755678284}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 1, z: 4}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &7275564648035880536
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65206,3 +65349,4 @@ SceneRoots:
   - {fileID: 1001583964}
   - {fileID: 2127034726}
   - {fileID: 942684295}
+  - {fileID: 1480913776}
