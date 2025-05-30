@@ -7,16 +7,11 @@ public class KargoController : MonoBehaviour
 
     private bool isOpened = false;
 
-    private SaveData saveData;
+    
 
     public void SetProduct(GameObject product)
     {
         productPrefab = product;
-    }
-
-    void Start()
-    {
-        saveData = SaveLoadManager.LoadGame();
     }
 
     void Update()
@@ -53,21 +48,8 @@ public class KargoController : MonoBehaviour
             urun.transform.localScale = Vector3.one * 0.1f;
         }
 
-       
-        SavePurchase();
-
         
         Destroy(gameObject);
-    }
-
-    private void SavePurchase()
-    {
-        if (productPrefab != null)
-        {
-            string itemName = productPrefab.name;
-            saveData.purchasedItems.Add(itemName);
-            SaveLoadManager.SaveGame(saveData);
-        }
     }
 }
 

@@ -13,47 +13,34 @@ public class PurchaseManager : MonoBehaviour
     public Transform hamburgerSpawnPoint;
     public Transform caySpawnPoint;
 
-    private SaveData saveData;
-
-    private void Start()
-    {
-        saveData = SaveLoadManager.LoadGame();
-
-        
-        foreach (string item in saveData.purchasedItems)
-        {
-            LoadPurchasedItem(item);
-        }
-    }
-
     public void BuyNargile()
     {
         SpawnKargo(nargilePrefab);
-        SavePurchase("Nargile");
+       
     }
 
     public void BuyMasa()
     {
         SpawnKargo(masaPrefab);
-        SavePurchase("Masa");
+        
     }
 
     public void BuySandalye()
     {
         SpawnKargo(sandalyePrefab);
-        SavePurchase("Sandalye");
+        
     }
 
     public void BuyHamburger()
     {
         SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
-        SavePurchase("Hamburger");
+        
     }
 
     public void BuyCay()
     {
         SpawnDirect(cayPrefab, caySpawnPoint);
-        SavePurchase("Cay");
+        
     }
 
     private void SpawnKargo(GameObject productPrefab)
@@ -69,12 +56,6 @@ public class PurchaseManager : MonoBehaviour
     private void SpawnDirect(GameObject productPrefab, Transform spawnPoint)
     {
         Instantiate(productPrefab, spawnPoint.position, Quaternion.identity);
-    }
-
-    private void SavePurchase(string itemName)
-    {
-        saveData.purchasedItems.Add(itemName);
-        SaveLoadManager.SaveGame(saveData);
     }
 
     private void LoadPurchasedItem(string itemName)
