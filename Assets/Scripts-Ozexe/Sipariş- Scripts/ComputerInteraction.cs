@@ -32,7 +32,7 @@ public class ComputerInteraction : MonoBehaviour
         isUsingComputer = true;
         computerCamera.Priority = 20;
         computerCanvas.SetActive(true);
-        playerInput.SwitchCurrentActionMap("Computer"); // Input Map deðiþtir
+        playerInput.SwitchCurrentActionMap("Computer"); 
     }
 
     void ExitComputer()
@@ -40,7 +40,8 @@ public class ComputerInteraction : MonoBehaviour
         isUsingComputer = false;
         computerCamera.Priority = 5;
         computerCanvas.SetActive(false);
-        playerInput.SwitchCurrentActionMap("Player"); // Input Map geri al
+        playerInput.SwitchCurrentActionMap("Player"); 
     }
 }
+
 
