@@ -23,14 +23,19 @@ public class CustomerCollisionHandler : MonoBehaviour
                 controller.Data.IsOrderDelivered = true;
                 controller.Handler.AddState(new EatFoodState(), controller.Data);
             }
-            else
+
+            var table = controller.Data.TableTarget;
+            if (table != null)
             {
                 controller.Data.IsOrderDelivered = false;
                 controller.Handler.AddState(new LeaveState(), controller.Data);
             }
 
             //collision.transform.position = OrderPos.position;
+
             Destroy(collision.gameObject);
         }
     }
+
+
 }

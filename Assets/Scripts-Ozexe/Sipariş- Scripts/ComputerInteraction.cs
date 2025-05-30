@@ -8,9 +8,6 @@ public class ComputerInteraction : MonoBehaviour
     public GameObject computerCanvas;
     public PlayerInput playerInput;
 
-    public Transform playerTransform;         // Karakterin Transform'u atanmalý
-    public float interactDistance = 3f;       // Etkileþim mesafesi
-
     private bool isUsingComputer = false;
 
     void Start()
@@ -20,9 +17,7 @@ public class ComputerInteraction : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(playerTransform.position, transform.position);
-
-        if (Keyboard.current.eKey.wasPressedThisFrame && !isUsingComputer && distance <= interactDistance)
+        if (Keyboard.current.eKey.wasPressedThisFrame && !isUsingComputer)
         {
             EnterComputer();
         }
@@ -37,7 +32,7 @@ public class ComputerInteraction : MonoBehaviour
         isUsingComputer = true;
         computerCamera.Priority = 20;
         computerCanvas.SetActive(true);
-        playerInput.SwitchCurrentActionMap("Computer");
+        playerInput.SwitchCurrentActionMap("Computer"); // Input Map deðiþtir
     }
 
     void ExitComputer()
@@ -45,7 +40,7 @@ public class ComputerInteraction : MonoBehaviour
         isUsingComputer = false;
         computerCamera.Priority = 5;
         computerCanvas.SetActive(false);
-        playerInput.SwitchCurrentActionMap("Player");
+        playerInput.SwitchCurrentActionMap("Player"); // Input Map geri al
     }
 }
 
