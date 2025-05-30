@@ -52,33 +52,31 @@ public class PickUp : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-            if (hit.collider.GetComponent<Food>())
+            if (hit.collider.GetComponent<Food>() || hit.collider.GetComponent<Item>())
             {
                 inHandItem = hit.collider.gameObject;
-                inHandItem.transform.position = Vector3.zero;
-                inHandItem.transform.rotation = Quaternion.identity;
                 inHandItem.transform.SetParent(pickUpParent.transform, false);
+                inHandItem.transform.localPosition = Vector3.zero;
+                inHandItem.transform.localRotation = Quaternion.identity;
+
                 if (rb != null)
                 {
                     rb.isKinematic = true;
                 }
-                return;
-            }
-            if (hit.collider.GetComponent<Item>())
-            {
-                Debug.Log("Kullanýldý!");
-                inHandItem = hit.collider.gameObject;
-                inHandItem.transform.SetParent(pickUpParent.transform, true);
-                if (rb != null)
+
+                // Collider'ý devre dýþý býrak
+                Collider col = inHandItem.GetComponent<Collider>();
+                if (col != null)
                 {
-                    rb.isKinematic = true;
+                    col.enabled = false;
                 }
+
                 return;
             }
         }
     }
+
 
     private void Use(InputAction.CallbackContext obj)
     {
@@ -89,17 +87,30 @@ public class PickUp : MonoBehaviour
     {
         if (inHandItem != null)
         {
+            Rigidbody rb = inHandItem.GetComponent<Rigidbody>();
+            Collider col = inHandItem.GetComponent<Collider>();
+
+            // Collider'ý yeniden etkinleþtir
+            if (col != null)
+            {
+                col.enabled = true;
+            }
+
             inHandItem.transform.SetParent(null);
-            inHandItem = null;
-            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+
+            // Kutuyu biraz ileri taþý, çakýþmayý önlemek için
+            inHandItem.transform.position = playerCameraTransform.position + playerCameraTransform.forward * 1f;
 
             if (rb != null)
             {
                 rb.isKinematic = false;
                 rb.AddForce(playerCameraTransform.forward * throwForce, ForceMode.Impulse);
             }
+
+            inHandItem = null;
         }
     }
+
 
     private void Update()
     {
