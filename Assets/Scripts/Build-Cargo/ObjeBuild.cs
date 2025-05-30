@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ObjeBuild : MonoBehaviour
 {
-    public GameObject[] Objects;
-    public GameObject[] ObjectsPreview;
+    public GameObject[] Objects;         // Gerçek yerleþtirilecek objeler (prefab)
+    public GameObject[] ObjectsPreview;  // Önizleme prefab'larý (bunlarý instantiate edeceðiz)
 
     private bool ObjeOlusturulabilirmi = false;
     public bool EtkilesimVarmi = false;
+
     public GameObject CurrentObject;
     private int currentIndex = -1;
     private bool objeYerlestirildi = false;
@@ -34,8 +35,12 @@ public class ObjeBuild : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && ObjeOlusturulabilirmi)
             {
+                // Gerçek objeyi instantiate et
                 Instantiate(Objects[currentIndex], CurrentObject.transform.position, CurrentObject.transform.rotation);
+
                 objeYerlestirildi = true;
+
+                // Preview objeyi yok et
                 Destroy(CurrentObject);
                 CurrentObject = null;
             }
@@ -46,19 +51,29 @@ public class ObjeBuild : MonoBehaviour
     {
         if (index >= 0 && index < ObjectsPreview.Length && !objeYerlestirildi)
         {
+            // Önce var olan preview objeyi yok et
             if (CurrentObject != null)
             {
-                CurrentObject.SetActive(false);
+                Destroy(CurrentObject);
             }
 
             currentIndex = index;
-            CurrentObject = ObjectsPreview[index];
+
+            // Prefab'ý sahneye instantiate et
+            CurrentObject = Instantiate(ObjectsPreview[index]);
+
+            // Emin olmak için aktif hale getir
             CurrentObject.SetActive(true);
 
+            // Artýk sahnede olduðu için Renderer.material eriþimi güvenli!
             Renderer objRenderer = CurrentObject.GetComponent<Renderer>();
             if (objRenderer != null)
             {
                 objRenderer.material.color = Color.green;
+            }
+            else
+            {
+                Debug.LogWarning("Renderer bileþeni bulunamadý!");
             }
         }
     }
