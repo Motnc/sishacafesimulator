@@ -9,33 +9,38 @@ public class PurchaseManager : MonoBehaviour
     public GameObject hamburgerPrefab;
     public GameObject cayPrefab;
 
-    public Transform kargoSpawnPoint;  // Koli için ortak spawn noktasý
-    public Transform hamburgerSpawnPoint; // Hamburger için özel nokta
-    public Transform caySpawnPoint;    // Çay için özel nokta
+    public Transform kargoSpawnPoint;
+    public Transform hamburgerSpawnPoint;
+    public Transform caySpawnPoint;
 
     public void BuyNargile()
     {
         SpawnKargo(nargilePrefab);
+       
     }
 
     public void BuyMasa()
     {
         SpawnKargo(masaPrefab);
+        
     }
 
     public void BuySandalye()
     {
         SpawnKargo(sandalyePrefab);
+        
     }
 
     public void BuyHamburger()
     {
         SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
+        
     }
 
     public void BuyCay()
     {
         SpawnDirect(cayPrefab, caySpawnPoint);
+        
     }
 
     private void SpawnKargo(GameObject productPrefab)
@@ -52,5 +57,32 @@ public class PurchaseManager : MonoBehaviour
     {
         Instantiate(productPrefab, spawnPoint.position, Quaternion.identity);
     }
+
+    private void LoadPurchasedItem(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Nargile":
+                SpawnKargo(nargilePrefab);
+                break;
+            case "Masa":
+                SpawnKargo(masaPrefab);
+                break;
+            case "Sandalye":
+                SpawnKargo(sandalyePrefab);
+                break;
+            case "Hamburger":
+                SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
+                break;
+            case "Cay":
+                SpawnDirect(cayPrefab, caySpawnPoint);
+                break;
+            default:
+                Debug.LogWarning("Bilinmeyen ürün: " + itemName);
+                break;
+        }
+    }
 }
+
+
 

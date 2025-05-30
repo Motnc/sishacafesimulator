@@ -99,4 +99,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efd850f6eaeaa349865c4dda639f80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kargoKapaliPrefab: {fileID: 7703790732113137438}
   kargoAcikPrefab: {fileID: 1037631228212971411, guid: 3c90193a7a1cdc14abbe6032dc11f470, type: 3}
