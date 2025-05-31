@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4821664370828075371}
   - component: {fileID: -5181118410382219594}
   - component: {fileID: 2700350512159481556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ATH Trak Nargile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1968521765780987336}
   - component: {fileID: 4413590258656103735}
   - component: {fileID: 2906154028150557999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kargo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
