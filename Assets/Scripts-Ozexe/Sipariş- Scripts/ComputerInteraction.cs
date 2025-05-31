@@ -10,18 +10,19 @@ public class ComputerInteraction : MonoBehaviour
 
     private bool isUsingComputer = false;
 
-    void Start()
-    {
-        computerCanvas.SetActive(false);
-    }
+
 
     void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame && !isUsingComputer)
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            EnterComputer();
+            if (!isUsingComputer)
+                EnterComputer();
+            else
+                ExitComputer();
         }
-        else if (Keyboard.current.escapeKey.wasPressedThisFrame && isUsingComputer)
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && isUsingComputer)
         {
             ExitComputer();
         }
@@ -30,17 +31,31 @@ public class ComputerInteraction : MonoBehaviour
     void EnterComputer()
     {
         isUsingComputer = true;
-        computerCamera.Priority = 20;
+        computerCamera.Priority = 10;
         computerCanvas.SetActive(true);
-        playerInput.SwitchCurrentActionMap("Computer"); // Input Map deðiþtir
+        playerInput.SwitchCurrentActionMap("Computer");
     }
 
     void ExitComputer()
     {
         isUsingComputer = false;
-        computerCamera.Priority = 5;
+        computerCamera.Priority = 1;
         computerCanvas.SetActive(false);
-        playerInput.SwitchCurrentActionMap("Player"); // Input Map geri al
+        playerInput.SwitchCurrentActionMap("Player");
+    }
+
+    void SetCanvasFullScreen()
+    {
+        if (computerCanvas != null)
+        {
+            RectTransform rt = computerCanvas.GetComponent<RectTransform>();
+            if (rt != null)
+            {
+                rt.anchorMin = Vector2.zero;
+                rt.anchorMax = Vector2.one;
+                rt.offsetMin = Vector2.zero;
+                rt.offsetMax = Vector2.zero;
+            }
+        }
     }
 }
-
