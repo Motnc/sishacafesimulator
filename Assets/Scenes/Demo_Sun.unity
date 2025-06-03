@@ -24191,6 +24191,7 @@ GameObject:
   - component: {fileID: 830861816}
   - component: {fileID: 830861815}
   - component: {fileID: 830861814}
+  - component: {fileID: 830861817}
   m_Layer: 0
   m_Name: Kare Masa
   m_TagString: Untagged
@@ -24288,6 +24289,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830861812}
   m_Mesh: {fileID: 6953259602721680387, guid: 4c3f0770bac0398468f0038d54653470, type: 3}
+--- !u!114 &830861817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830861812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c36a0d038af842bbfca4c47fb0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroup:
+    table: {fileID: 830861813}
+    seats:
+    - {fileID: 1436291865}
+    - {fileID: 147980274}
+    - {fileID: 542312800}
+    - {fileID: 2039725511}
+    moneySpawnPoint: {fileID: 452525313}
+    mode: 0
 --- !u!1 &834597056
 GameObject:
   m_ObjectHideFlags: 0
@@ -39901,6 +39923,7 @@ GameObject:
   - component: {fileID: 1368806341}
   - component: {fileID: 1368806340}
   - component: {fileID: 1368806339}
+  - component: {fileID: 1368806342}
   m_Layer: 0
   m_Name: Kare Masa
   m_TagString: Untagged
@@ -39998,6 +40021,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368806337}
   m_Mesh: {fileID: 6953259602721680387, guid: 4c3f0770bac0398468f0038d54653470, type: 3}
+--- !u!114 &1368806342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368806337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c36a0d038af842bbfca4c47fb0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroup:
+    table: {fileID: 1368806338}
+    seats:
+    - {fileID: 1398118248}
+    - {fileID: 766499615}
+    - {fileID: 1518839673}
+    - {fileID: 2126483412}
+    moneySpawnPoint: {fileID: 481051924}
+    mode: 0
 --- !u!1001 &1370358852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64871,6 +64915,7 @@ GameObject:
   - component: {fileID: 1888762701119024253}
   - component: {fileID: 5634396745330810074}
   - component: {fileID: 1222481186411895804}
+  - component: {fileID: 7234226477583305369}
   m_Layer: 0
   m_Name: Kare Masa
   m_TagString: Untagged
@@ -64992,8 +65037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d097195f03f5774e9fc94b0e2c8a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalNpcPrefab: {fileID: 0}
-  gamblingNpcPrefab: {fileID: 0}
+  normalNpcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
+  gamblingNpcPrefab: {fileID: 7305885753582677563, guid: e8d58c4b3a003a945aed037cce26e2b3, type: 3}
   checkInterval: 2
   exitPoint: {fileID: 804122565}
   moneyPrefab: {fileID: 7404957865196860276, guid: dbe0368bf18509743b63c2da6001413a, type: 3}
@@ -65199,6 +65244,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8315776829970630518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7234226477583305369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4371354357755678284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c36a0d038af842bbfca4c47fb0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableGroup:
+    table: {fileID: 7234226477583305368}
+    seats:
+    - {fileID: 4646147447106771864}
+    - {fileID: 1248596781432712183}
+    - {fileID: 3115059044369513640}
+    - {fileID: 2670815186803974985}
+    moneySpawnPoint: {fileID: 6278697735903101031}
+    mode: 0
 --- !u!23 &7275564648035880536
 MeshRenderer:
   m_ObjectHideFlags: 0
