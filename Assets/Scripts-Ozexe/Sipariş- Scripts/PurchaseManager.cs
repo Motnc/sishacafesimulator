@@ -2,26 +2,87 @@ using UnityEngine;
 
 public class PurchaseManager : MonoBehaviour
 {
+    public GameObject kargoKapaliPrefab;
     public GameObject nargilePrefab;
     public GameObject masaPrefab;
     public GameObject sandalyePrefab;
+    public GameObject hamburgerPrefab;
+    public GameObject cayPrefab;
 
-    public Transform nargileSpawnPoint;
-    public Transform masaSpawnPoint;
-    public Transform sandalyeSpawnPoint;
+    public Transform kargoSpawnPoint;
+    public Transform hamburgerSpawnPoint;
+    public Transform caySpawnPoint;
 
     public void BuyNargile()
     {
-        Instantiate(nargilePrefab, nargileSpawnPoint.position, Quaternion.identity);
+        SpawnKargo(nargilePrefab);
+       
     }
 
     public void BuyMasa()
     {
-        Instantiate(masaPrefab, masaSpawnPoint.position, Quaternion.identity);
+        SpawnKargo(masaPrefab);
+        
     }
 
     public void BuySandalye()
     {
-        Instantiate(sandalyePrefab, sandalyeSpawnPoint.position, Quaternion.identity);
+        SpawnKargo(sandalyePrefab);
+        
+    }
+
+    public void BuyHamburger()
+    {
+        SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
+        
+    }
+
+    public void BuyCay()
+    {
+        SpawnDirect(cayPrefab, caySpawnPoint);
+        
+    }
+
+    private void SpawnKargo(GameObject productPrefab)
+    {
+        GameObject kapaliKargo = Instantiate(kargoKapaliPrefab, kargoSpawnPoint.position, Quaternion.identity);
+        KargoController kargoController = kapaliKargo.GetComponent<KargoController>();
+        if (kargoController != null)
+        {
+            kargoController.SetProduct(productPrefab);
+        }
+    }
+
+    private void SpawnDirect(GameObject productPrefab, Transform spawnPoint)
+    {
+        Instantiate(productPrefab, spawnPoint.position, Quaternion.identity);
+    }
+
+    private void LoadPurchasedItem(string itemName)
+    {
+        switch (itemName)
+        {
+            case "Nargile":
+                SpawnKargo(nargilePrefab);
+                break;
+            case "Masa":
+                SpawnKargo(masaPrefab);
+                break;
+            case "Sandalye":
+                SpawnKargo(sandalyePrefab);
+                break;
+            case "Hamburger":
+                SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
+                break;
+            case "Cay":
+                SpawnDirect(cayPrefab, caySpawnPoint);
+                break;
+            default:
+                Debug.LogWarning("Bilinmeyen ürün: " + itemName);
+                break;
+        }
     }
 }
+
+
+
