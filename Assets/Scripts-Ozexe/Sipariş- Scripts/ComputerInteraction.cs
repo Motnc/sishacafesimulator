@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;
 
@@ -7,22 +7,26 @@ public class ComputerInteraction : MonoBehaviour
     public CinemachineCamera computerCamera;
     public GameObject computerCanvas;
     public PlayerInput playerInput;
+    public GameObject crosshairUI;
 
-    public Transform playerTransform;         // Karakterin Transform'u atanmalý
-    public float interactDistance = 3f;       // Etkileþim mesafesi
+    public Transform player;
+    public float interactionDistance = 2.5f;
 
     private bool isUsingComputer = false;
 
     void Start()
     {
         computerCanvas.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (crosshairUI != null)
+            crosshairUI.SetActive(true);
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(playerTransform.position, transform.position);
-
-        if (Keyboard.current.eKey.wasPressedThisFrame && !isUsingComputer && distance <= interactDistance)
+        if (Keyboard.current.eKey.wasPressedThisFrame && !isUsingComputer && IsNearComputer())
         {
             EnterComputer();
         }
@@ -38,6 +42,12 @@ public class ComputerInteraction : MonoBehaviour
         computerCamera.Priority = 20;
         computerCanvas.SetActive(true);
         playerInput.SwitchCurrentActionMap("Computer");
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (crosshairUI != null)
+            crosshairUI.SetActive(false);
     }
 
     void ExitComputer()
@@ -46,6 +56,19 @@ public class ComputerInteraction : MonoBehaviour
         computerCamera.Priority = 5;
         computerCanvas.SetActive(false);
         playerInput.SwitchCurrentActionMap("Player");
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (crosshairUI != null)
+            crosshairUI.SetActive(true);
+    }
+
+    bool IsNearComputer()
+    {
+        float distance = Vector3.Distance(player.position, transform.position);
+        return distance <= interactionDistance;
     }
 }
+
 

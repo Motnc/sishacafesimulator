@@ -130,4 +130,10 @@ public class PickUp : MonoBehaviour
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
         }
     }
+
+    public GameObject GetHeldItem()
+    {
+        return inHandItem;
+    }
+
 }
