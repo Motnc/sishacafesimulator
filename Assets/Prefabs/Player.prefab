@@ -1498,6 +1498,7 @@ GameObject:
   - component: {fileID: 4073383102650640304}
   - component: {fileID: 2880846580509812254}
   - component: {fileID: 3971835913168324211}
+  - component: {fileID: 5111689996985657179}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -1693,13 +1694,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890bcdb830c916a4b9dd507ea2217c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 5497913835423680048}
-  interactDistance: 3
-  groundLayer:
+  playerCamera: {fileID: 4769316215062123226}
+  cleaningRange: 2
+  dirtySurfaceLayer:
     serializedVersion: 2
     m_Bits: 128
+  cleaningCircleObject: {fileID: 0}
   cleaningCircleUI: {fileID: 0}
-  cleanMaterial: {fileID: 2100000, guid: 5a89022f4772eee4684ee14a6b1608f0, type: 2}
+  cleaningDuration: 3
+  pickUpScript: {fileID: 2880846580509812254}
+--- !u!114 &5111689996985657179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472089844482092493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3e04a7805eb9f4aaaece166a8deeba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 4769316215062123226}
+  heatingRange: 2
+  coalLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  heatingCircleObject: {fileID: 0}
+  heatingCircleUI: {fileID: 0}
+  heatingDuration: 3
+  pickUpScript: {fileID: 2880846580509812254}
 --- !u!1 &4627062688826133195
 GameObject:
   m_ObjectHideFlags: 0
