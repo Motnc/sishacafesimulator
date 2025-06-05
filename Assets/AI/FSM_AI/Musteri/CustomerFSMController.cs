@@ -15,7 +15,6 @@ public class CustomerFSMController : MonoBehaviour
     public Transform MoneyPosition;
 
     private Seat assignedSeat;
-
     public TableSession Session { get; private set; }
 
     public void AssignSession(TableSession session)
@@ -32,19 +31,14 @@ public class CustomerFSMController : MonoBehaviour
     public void OnOrderDelivered()
     {
         Data.IsOrderDelivered = true;
-        Session?.RegisterOrderDelivered(this); // Artýk doðrudan yemeðe geçmiyoruz
+        Session?.RegisterOrderDelivered(this);
     }
-
 
     public void LeaveTable()
     {
         Session?.NotifyCustomerLeft(this);
-
-        if (assignedSeat != null)
-        {
-            assignedSeat.Free(); // Koltuðu boþalt
-            assignedSeat = null;
-        }
+        assignedSeat?.Free();
+        assignedSeat = null;
     }
 
     public void Init(Transform tableTarget, Transform seatPosition, Transform exitPoint, GameObject moneyPrefab, Transform moneyPosition)
@@ -77,7 +71,6 @@ public class CustomerFSMController : MonoBehaviour
         Handler.AddState(new EatFoodState(), Data);
     }
 
-
     public void SetAssignedSeat(Seat seat)
     {
         assignedSeat = seat;
@@ -85,11 +78,26 @@ public class CustomerFSMController : MonoBehaviour
 
     private void OnDestroy()
     {
-        LeaveTable(); // NPC yok olunca da koltuk boþaltýlsýn
+        LeaveTable();
     }
 
     private void Update()
     {
         Handler?.UpdateStates();
+    }
+
+    // Pool geri çaðýrma fonksiyonu (Object Pooler varsa)
+    public void ReturnToPool()
+    {
+        LeaveTable();
+        Handler?.Reset();
+        gameObject.SetActive(false);
+    }
+
+    // Spawn metodu (isteðe baðlý)
+    public void SpawnCustomer(GameObject customerPrefab, Vector3 spawnPos)
+    {
+        var customer = ObjectPooler.Instance.Get(customerPrefab, spawnPos, Quaternion.identity);
+        ObjectPooler.Instance.Release(customer);
     }
 }

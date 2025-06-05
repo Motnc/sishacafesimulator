@@ -35,5 +35,12 @@ namespace BeykozEdu.FSM
 
             _states.Peek().OnUpdate();
         }
+
+        //deneme
+        public void Reset()
+        {
+            while (_states.Count > 0)
+                _states.Pop().OnExit();
+        }
     }
 }

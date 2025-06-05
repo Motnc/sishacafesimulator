@@ -14,10 +14,15 @@ public class LeaveState : BaseState<CustomerStateData>
     {
         if (!StateData.Agent.pathPending && StateData.Agent.remainingDistance < 0.2f)
         {
-            GameObject.Destroy(StateData.Agent.gameObject);
+            // Havuz sistemi varsa:
+            if (ObjectPooler.Instance != null)
+                ObjectPooler.Instance.Release(StateData.Agent.gameObject);
+            else
+                GameObject.Destroy(StateData.Agent.gameObject);
         }
     }
 
     public override void OnExit() { }
 }
+
 
