@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class CleaningSystem : MonoBehaviour
@@ -13,9 +13,11 @@ public class CleaningSystem : MonoBehaviour
 
     private float cleanTimer = 0f;
     private bool isCleaning = false;
-    private GameObject currentDirtyObject;
 
-    public PickUp pickUpScript; // PickUp scriptine referans
+    private GameObject currentTargetObject;
+    private Material currentTargetMaterial;
+
+    public Animator mopAnimator; // Mop animatÃ¶r referansÄ±
 
     void Start()
     {
@@ -24,13 +26,19 @@ public class CleaningSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isCleaning && IsHoldingMop())
+        if (Input.GetMouseButtonDown(0) && !isCleaning)
         {
             Ray ray = new Ray(playerCamera.position, playerCamera.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, cleaningRange, dirtySurfaceLayer))
             {
-                currentDirtyObject = hit.collider.gameObject;
-                StartCleaning();
+                Renderer rend = hit.collider.GetComponent<Renderer>();
+                if (rend != null)
+                {
+                    currentTargetObject = hit.collider.gameObject;
+                    currentTargetMaterial = rend.material;
+
+                    StartCleaning();
+                }
             }
         }
 
@@ -46,21 +54,19 @@ public class CleaningSystem : MonoBehaviour
         }
     }
 
-    bool IsHoldingMop()
-    {
-        if (pickUpScript == null || pickUpScript.GetHeldItem() == null)
-            return false;
-
-        return pickUpScript.GetHeldItem().name.Contains("Mop");
-    }
-
     void StartCleaning()
     {
         isCleaning = true;
         cleanTimer = 0f;
         cleaningCircleUI.fillAmount = 0f;
         cleaningCircleObject.SetActive(true);
-        Debug.Log("Temizlik baþladý.");
+
+        if (mopAnimator != null)
+        {
+            mopAnimator.SetTrigger("Clean");
+        }
+
+        Debug.Log("Temizlik baÅŸladÄ±.");
     }
 
     void FinishCleaning()
@@ -68,11 +74,11 @@ public class CleaningSystem : MonoBehaviour
         isCleaning = false;
         cleaningCircleObject.SetActive(false);
 
-        if (currentDirtyObject != null)
+        if (currentTargetObject != null)
         {
-            Destroy(currentDirtyObject);
+            Destroy(currentTargetObject);
         }
 
-        Debug.Log("Temizlik tamamlandý. Zemin sahneden kaldýrýldý.");
+        Debug.Log("Temizlik tamamlandÄ±.");
     }
 }
