@@ -9,6 +9,10 @@ TagManager:
   - Platform
   - Door
   - DirtyFloor
+  - IsinmisKomur
+  - 'Coal '
+  - Hookah
+  - CoalHeater
   layers:
   - Default
   - TransparentFX

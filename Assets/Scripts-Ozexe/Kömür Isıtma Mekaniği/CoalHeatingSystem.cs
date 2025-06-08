@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class CoalHeatingSystem : MonoBehaviour
 {
     public Transform playerCamera;
     public float heatingRange = 2f;
-    public LayerMask coalLayer;
+    public LayerMask heatableLayer;
 
     public GameObject heatingCircleObject;
     public Image heatingCircleUI;
     public float heatingDuration = 3f;
 
-    [Tooltip("")]
+    public Material heatedMaterial;
     public float revertDelay = 10f;
 
-    private float heatTimer = 0f;
+    public PickUp pickUpScript; // Elinde tuttuğun item yönetimi
+    public GameObject coal; // Kömür objesi referansı
+
+    public GameObject tong; // Maşa objesi
+    public Transform tongCoalHoldPoint; // Maşanın ortasında kömürün duracağı boş GameObject
+    public GameObject nargile; // Nargile prefabı
+    public Transform nargileCoalHoldPoint; // Nargilenin üstünde kömürün duracağı boş GameObject
+
     private bool isHeating = false;
-
+    private float heatTimer = 0f;
     private Renderer currentCoalRenderer;
-    private Color originalColor;
-
-    public PickUp pickUpScript;
-
-    private Coroutine revertCoroutine;
+    private Material originalMaterial;
 
     void Start()
     {
@@ -32,18 +34,29 @@ public class CoalHeatingSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isHeating && IsHoldingHeater())
+        if (Input.GetMouseButtonDown(0) && !isHeating)
         {
             Ray ray = new Ray(playerCamera.position, playerCamera.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, heatingRange, coalLayer))
+            if (Physics.Raycast(ray, out RaycastHit hit, heatingRange))
             {
-                Renderer rend = hit.collider.GetComponent<Renderer>();
-                if (rend != null)
-                {
-                    currentCoalRenderer = rend;
-                    originalColor = rend.material.color;
+                GameObject clickedObj = hit.collider.gameObject;
 
+                // Eğer elimizde kömür ısıtıcısı varsa ve kömüre tıklanmışsa ısıtmaya başla
+                if (IsHoldingHeater() && clickedObj == coal)
+                {
                     StartHeating();
+                    currentCoalRenderer = coal.GetComponent<Renderer>();
+                    originalMaterial = currentCoalRenderer.material;
+                }
+                // Elimde maşa varsa ve kömüre tıklanmışsa kömürü maşaya taşı
+                else if (IsHoldingTong() && clickedObj == coal)
+                {
+                    PlaceCoalOnTong();
+                }
+                // Kömür maşanın üzerinde ve nargileye tıklanmışsa kömürü nargileye taşı
+                else if (clickedObj == nargile && IsCoalOnTong())
+                {
+                    PlaceCoalOnNargile();
                 }
             }
         }
@@ -68,13 +81,22 @@ public class CoalHeatingSystem : MonoBehaviour
         return pickUpScript.GetHeldItem().name.Contains("Isitici");
     }
 
+    bool IsHoldingTong()
+    {
+        if (pickUpScript == null || pickUpScript.GetHeldItem() == null)
+            return false;
+
+        return pickUpScript.GetHeldItem().name.Contains("Masa") == false && pickUpScript.GetHeldItem().name.Contains("Tong");
+        // Yukarıdaki satırı elindeki maşa objenin adını uygun şekilde yazarsan değiştir
+    }
+
     void StartHeating()
     {
         isHeating = true;
         heatTimer = 0f;
         heatingCircleUI.fillAmount = 0f;
         heatingCircleObject.SetActive(true);
-        Debug.Log("Isıtma başladı.");
+        Debug.Log("Kömür ısıtma başladı.");
     }
 
     void FinishHeating()
@@ -82,25 +104,42 @@ public class CoalHeatingSystem : MonoBehaviour
         isHeating = false;
         heatingCircleObject.SetActive(false);
 
-        if (currentCoalRenderer != null)
+        if (currentCoalRenderer != null && heatedMaterial != null)
         {
-            currentCoalRenderer.material.color = Color.red;
-            Debug.Log("Isıtma tamamlandı.");
-           
-            if (revertCoroutine != null)
-                StopCoroutine(revertCoroutine);
-            
-            revertCoroutine = StartCoroutine(RevertAfterDelay(currentCoalRenderer, originalColor, revertDelay));
+            currentCoalRenderer.material = heatedMaterial;
+            Debug.Log("Kömür ısıtıldı!");
+
+            Invoke(nameof(RevertToOriginal), revertDelay);
         }
     }
 
-    IEnumerator RevertAfterDelay(Renderer coalRenderer, Color revertColor, float delay)
+    void RevertToOriginal()
     {
-        yield return new WaitForSeconds(delay);
-        if (coalRenderer != null)
+        if (currentCoalRenderer != null && originalMaterial != null)
         {
-            coalRenderer.material.color = revertColor;
-            Debug.Log("Kömür soğudu, eski haline döndü.");
+            currentCoalRenderer.material = originalMaterial;
+            Debug.Log("Kömür tekrar soğudu.");
         }
+    }
+
+    void PlaceCoalOnTong()
+    {
+        coal.transform.SetParent(tongCoalHoldPoint);
+        coal.transform.localPosition = Vector3.zero;
+        coal.transform.localRotation = Quaternion.identity;
+        Debug.Log("Kömür maşanın ortasına yerleştirildi.");
+    }
+
+    void PlaceCoalOnNargile()
+    {
+        coal.transform.SetParent(nargileCoalHoldPoint);
+        coal.transform.localPosition = Vector3.zero;
+        coal.transform.localRotation = Quaternion.identity;
+        Debug.Log("Kömür nargilenin üzerine yerleştirildi.");
+    }
+
+    bool IsCoalOnTong()
+    {
+        return coal.transform.IsChildOf(tongCoalHoldPoint);
     }
 }
