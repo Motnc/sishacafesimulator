@@ -10,7 +10,7 @@ public partial class MasaKontrolCondition : Condition
 
     public override bool IsTrue()
     {
-        return Masa?.Value != null && Masa.Value.TryGetComponent(out Masa masaComponent) && masaComponent.IsEmpty;
+        return Masa?.Value != null && Masa.Value.TryGetComponent(out Masa masaComponent) && masaComponent.IsEmpty_;
     }
 
     public override void OnStart()
