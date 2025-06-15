@@ -14,6 +14,8 @@ TagManager:
   - Hookah
   - CoalHeater
   - AromaLid
+  - NPC
+  - OpenSign
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Isitilabilir
   - AromaLayer
   - LidLayer
-  - 
+  - OpenSign
   - 
   - 
   - 
