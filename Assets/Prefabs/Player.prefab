@@ -130,6 +130,37 @@ Transform:
   - {fileID: 6170462659383987144}
   m_Father: {fileID: 5387564210935473512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &623546636635486829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3970232588635436310}
+  m_Layer: 2
+  m_Name: Mop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3970232588635436310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623546636635486829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.015, y: 0.005, z: 0.353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5063366894943404329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &748766048006787689
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +894,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5450398952858529450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2565990533451428743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8991972649548701233}
+  m_Layer: 2
+  m_Name: Tong
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8991972649548701233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565990533451428743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.009, y: 0.068, z: -0.226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5063366894943404329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2894933994776775032
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,10 +950,13 @@ Transform:
   m_GameObject: {fileID: 2894933994776775032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.123, y: -0.144, z: 0.647}
+  m_LocalPosition: {x: 0.113, y: -0.047, z: 0.835}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3970232588635436310}
+  - {fileID: 8991972649548701233}
+  - {fileID: 6759000139470013966}
   m_Father: {fileID: 4769316215062123226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2981796208484192059
@@ -1675,9 +1740,15 @@ MonoBehaviour:
     m_Bits: 64
   playerCameraTransform: {fileID: 4769316215062123226}
   hitRange: 3
-  pickUpParent: {fileID: 5063366894943404329}
-  inHandItem: {fileID: 0}
   throwForce: 3
+  defaultPickUpParent: {fileID: 5063366894943404329}
+  customPickUpSettings:
+  - objectName: Mop shisha1
+    customParent: {fileID: 3970232588635436310}
+  - objectName: Tong
+    customParent: {fileID: 8991972649548701233}
+  - objectName: AromaKutu
+    customParent: {fileID: 6759000139470013966}
   interactionInput: {fileID: -8487996973975192875, guid: 2412d134db64817488d37379d7d06215, type: 3}
   dropInput: {fileID: -7163515243229071639, guid: 2412d134db64817488d37379d7d06215, type: 3}
   useInput: {fileID: -2917462789188135289, guid: 2412d134db64817488d37379d7d06215, type: 3}
@@ -2503,6 +2574,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7925469681842259764}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8424229758380612165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6759000139470013966}
+  m_Layer: 2
+  m_Name: Aroma Kutu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6759000139470013966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424229758380612165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.009, y: 0.074, z: 0.186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5063366894943404329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8455416030494979040
 GameObject:
