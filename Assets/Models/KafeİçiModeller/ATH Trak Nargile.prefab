@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4996650226671242840}
   - component: {fileID: 1204835530592328898}
   - component: {fileID: 7908730478925387801}
-  - component: {fileID: 4821664370828075371}
   - component: {fileID: -5181118410382219594}
   - component: {fileID: 2700350512159481556}
+  - component: {fileID: 8837316194911365981}
   m_Layer: 6
   m_Name: ATH Trak Nargile
   m_TagString: Platform
@@ -96,18 +96,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4821664370828075371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300479645450085688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0625ce078bd05334c9064fa63c826a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &-5181118410382219594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -156,6 +144,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8837316194911365981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300479645450085688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471b8abfc4701f64a97048d64cc1dfbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedIndex: 0
 --- !u!1 &2681672933022737077
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +168,6 @@ GameObject:
   - component: {fileID: 2129313093199641113}
   - component: {fileID: 1968521765780987336}
   - component: {fileID: 4413590258656103735}
-  - component: {fileID: 2906154028150557999}
   m_Layer: 6
   m_Name: Kargo
   m_TagString: Untagged
@@ -238,17 +238,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2906154028150557999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2681672933022737077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24283cdc3819164f9fb77e4858248a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assignedIndex: 0
-  useInput: {fileID: -2917462789188135289, guid: 2412d134db64817488d37379d7d06215, type: 3}

@@ -16,5 +16,7 @@ public class WaitForFoodStateEXP : BaseState<CustomerStateDataEXP>
         }
     }
 
-    public override void OnExit() { }
+    public override void OnExit() {
+        Debug.Log("Çýktým");
+    }
 }

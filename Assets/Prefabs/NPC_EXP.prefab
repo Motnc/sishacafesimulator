@@ -1394,8 +1394,8 @@ GameObject:
   - component: {fileID: 3824950762911053908}
   - component: {fileID: 7036063646775992324}
   - component: {fileID: 4123773641742051244}
-  - component: {fileID: 234180262830843542}
   - component: {fileID: 4473633613962707064}
+  - component: {fileID: 1870269093119220769}
   m_Layer: 0
   m_Name: NPC_EXP
   m_TagString: NPC
@@ -1505,18 +1505,6 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &234180262830843542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4710540149646292755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba4110a68bda6f469990448319ac771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4473633613962707064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,6 +1515,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b702908364e2d254b855b9d50bdab115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1870269093119220769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710540149646292755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba4110a68bda6f469990448319ac771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4830936466956516884

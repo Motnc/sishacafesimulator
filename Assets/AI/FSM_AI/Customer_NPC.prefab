@@ -1913,8 +1913,6 @@ GameObject:
   - component: {fileID: 7108429370075548800}
   - component: {fileID: 4443920626605110375}
   - component: {fileID: 366973666267981364}
-  - component: {fileID: 669031863885011629}
-  - component: {fileID: 5035190335390788256}
   m_Layer: 0
   m_Name: Customer_NPC
   m_TagString: Untagged
@@ -2007,35 +2005,6 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &669031863885011629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305885753582677563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb38c81762587d941b0cf5741ca5aa32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5035190335390788256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305885753582677563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a46ec05795822e4d9592f4bb8455f8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TableTarget: {fileID: 0}
-  SeatPosition: {fileID: 0}
-  ExitPoint: {fileID: 0}
-  MoneyPrefab: {fileID: 7404957865196860276, guid: dbe0368bf18509743b63c2da6001413a, type: 3}
-  MoneyPosition: {fileID: 0}
 --- !u!1 &7367314741480367334
 GameObject:
   m_ObjectHideFlags: 0
