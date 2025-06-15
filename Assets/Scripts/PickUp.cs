@@ -6,30 +6,29 @@ using UnityEngine.InputSystem;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask pickableLayerMask;
+    [System.Serializable]
+    public class CustomPickUp
+    {
+        public string objectName;
+        public Transform customParent;
+    }
 
-    [SerializeField]
-    private Transform playerCameraTransform;
+    [Header("Ayarlar")]
+    [SerializeField] private LayerMask pickableLayerMask;
+    [SerializeField] private Transform playerCameraTransform;
+    [SerializeField] private float hitRange = 3f;
+    [SerializeField] private float throwForce;
 
-    [SerializeField]
-    [Min(1)]
-    private float hitRange = 3;
+    [Header("Elde Taþýma Noktalarý")]
+    [SerializeField] private Transform defaultPickUpParent;
+    [SerializeField] private List<CustomPickUp> customPickUpSettings;
 
-    [SerializeField]
-    private Transform pickUpParent;
+    [Header("Inputlar")]
+    [SerializeField] private InputActionReference interactionInput, dropInput, useInput;
 
-    [SerializeField]
     private GameObject inHandItem;
-
-    [SerializeField]
-    private float throwForce;
-
-    [SerializeField]
-    private InputActionReference interactionInput, dropInput, useInput;
-
-
     private RaycastHit hit;
+
     private void Start()
     {
         interactionInput.action.Enable();
@@ -39,16 +38,11 @@ public class PickUp : MonoBehaviour
         interactionInput.action.performed += Interact;
         dropInput.action.performed += Drop;
         useInput.action.performed += Use;
-
     }
-
 
     private void Interact(InputAction.CallbackContext obj)
     {
-        if (inHandItem != null)
-        {
-            return;
-        }
+        if (inHandItem != null) return;
 
         if (hit.collider != null)
         {
@@ -56,31 +50,37 @@ public class PickUp : MonoBehaviour
             if (hit.collider.GetComponent<Food>() || hit.collider.GetComponent<Item>())
             {
                 inHandItem = hit.collider.gameObject;
-                inHandItem.transform.SetParent(pickUpParent.transform, false);
+
+                Transform targetParent = GetCustomParent(inHandItem.name);
+                inHandItem.transform.SetParent(targetParent, false);
                 inHandItem.transform.localPosition = Vector3.zero;
                 inHandItem.transform.localRotation = Quaternion.identity;
 
                 if (rb != null)
-                {
                     rb.isKinematic = true;
-                }
 
-                // Collider'ý devre dýþý býrak
                 Collider col = inHandItem.GetComponent<Collider>();
                 if (col != null)
-                {
                     col.enabled = false;
-                }
 
                 return;
             }
         }
     }
 
+    private Transform GetCustomParent(string objectName)
+    {
+        foreach (var custom in customPickUpSettings)
+        {
+            if (objectName.Contains(custom.objectName))
+                return custom.customParent;
+        }
+        return defaultPickUpParent;
+    }
 
     private void Use(InputAction.CallbackContext obj)
     {
-
+        // Kullaným mekaniði buraya gelebilir
     }
 
     private void Drop(InputAction.CallbackContext obj)
@@ -90,15 +90,10 @@ public class PickUp : MonoBehaviour
             Rigidbody rb = inHandItem.GetComponent<Rigidbody>();
             Collider col = inHandItem.GetComponent<Collider>();
 
-            // Collider'ý yeniden etkinleþtir
             if (col != null)
-            {
                 col.enabled = true;
-            }
 
             inHandItem.transform.SetParent(null);
-
-            // Kutuyu biraz ileri taþý, çakýþmayý önlemek için
             inHandItem.transform.position = playerCameraTransform.position + playerCameraTransform.forward * 1f;
 
             if (rb != null)
@@ -111,19 +106,16 @@ public class PickUp : MonoBehaviour
         }
     }
 
-
     private void Update()
     {
         Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
+
         if (hit.collider != null)
         {
             hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
         }
 
-        if (inHandItem != null)
-        {
-            return;
-        }
+        if (inHandItem != null) return;
 
         if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
         {
@@ -135,5 +127,4 @@ public class PickUp : MonoBehaviour
     {
         return inHandItem;
     }
-
 }
