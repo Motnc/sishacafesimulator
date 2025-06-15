@@ -16,10 +16,8 @@ namespace MemoryPool
 
         private void Start()
         {
-            // NPC havuzunu baþlat
             _npcPool = new ObjectPoolPrefab<NPCEXP>(5, npcPrefab, npcPoolParent);
             _npcPool.Initialize();
-
             Debug.Log("NPC Pool baþlatýldý.");
         }
 
@@ -27,7 +25,6 @@ namespace MemoryPool
         {
             spawnTimer += Time.deltaTime;
 
-            // Her frame masa kontrolü
             if (MasaManagerEXP.Instance != null && MasaManagerEXP.Instance.masalar.Count > 0)
             {
                 TrySpawnNPCIfTableAvailable();
@@ -75,6 +72,8 @@ namespace MemoryPool
             }
 
             CustomerFSMControllerEXP customer = npc.GetComponent<CustomerFSMControllerEXP>();
+            CustomerUIController ui = npc.GetComponentInChildren<CustomerUIController>();
+
             if (customer != null)
             {
                 customer.Setup(
@@ -82,7 +81,8 @@ namespace MemoryPool
                     emptySeat.transform,
                     emptyTable.exitPoint,
                     emptyTable.moneyPrefab,
-                    emptyTable.moneySpawnPoint
+                    emptyTable.moneySpawnPoint,
+                    ui
                 );
             }
             else

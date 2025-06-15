@@ -14,4 +14,6 @@ public class CustomerStateDataEXP : IBaseStateData
     public string SelectedOrder;
     public bool IsOrderDelivered;
     public System.Action<string> OnOrderSelected;
+
+    public CustomerUIController UIController;
 }

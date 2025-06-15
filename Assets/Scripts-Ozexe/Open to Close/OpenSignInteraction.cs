@@ -36,6 +36,8 @@ public class OpenSignController : MonoBehaviour
         if (renderer == null) return;
 
         isOpen = !isOpen;
+        FindObjectOfType<ShopOpenTimer>().StartTimer();
+
         renderer.material = isOpen ? greenMaterial : redMaterial;
     }
 }

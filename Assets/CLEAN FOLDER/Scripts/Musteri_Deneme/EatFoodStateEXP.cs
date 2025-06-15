@@ -8,6 +8,7 @@ public class EatFoodStateEXP : BaseState<CustomerStateDataEXP>
 
     public override void OnEnter()
     {
+        StateData.UIController?.DeleteOrderText();
         Debug.Log("Hi");
         StateData.Animator.SetTrigger("eat");
         Debug.Log("Müþteri yemeði yiyor");

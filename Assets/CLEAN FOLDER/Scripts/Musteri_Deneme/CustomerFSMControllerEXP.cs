@@ -14,6 +14,9 @@ public class CustomerFSMControllerEXP : MonoBehaviour
     public GameObject MoneyPrefab;
     public Transform MoneyPosition;
 
+    [Header("UI")]
+    public CustomerUIController UIController;
+
     private bool isFSMActive = false;
 
     private void Start()
@@ -46,13 +49,13 @@ public class CustomerFSMControllerEXP : MonoBehaviour
             ExitTarget = ExitTarget,
             MoneyPrefab = MoneyPrefab,
             MoneyPosition = MoneyPosition,
-            IsOrderDelivered = false
+            IsOrderDelivered = false,
+            UIController = UIController
         };
 
         Handler = new StateMachineHandler<CustomerStateDataEXP>();
         Handler.AddState(new MoveToTableStateEXP(), Data);
 
-        // Masa dolu olarak iþaretlenir
         MasaEXP masa = TableTarget.GetComponent<MasaEXP>();
         if (masa != null)
         {
@@ -62,13 +65,14 @@ public class CustomerFSMControllerEXP : MonoBehaviour
         isFSMActive = true;
     }
 
-    public void Setup(Transform table, Transform seat, Transform exitTarget, GameObject moneyPrefab, Transform moneyPosition)
+    public void Setup(Transform table, Transform seat, Transform exitTarget, GameObject moneyPrefab, Transform moneyPosition, CustomerUIController uiController)
     {
         TableTarget = table;
         SeatPosition = seat;
         ExitTarget = exitTarget;
         MoneyPrefab = moneyPrefab;
         MoneyPosition = moneyPosition;
+        UIController = uiController;
 
         if (Data == null)
         {
@@ -85,6 +89,7 @@ public class CustomerFSMControllerEXP : MonoBehaviour
         Data.MoneyPrefab = MoneyPrefab;
         Data.MoneyPosition = MoneyPosition;
         Data.IsOrderDelivered = false;
+        Data.UIController = UIController;
 
         if (Handler == null)
         {

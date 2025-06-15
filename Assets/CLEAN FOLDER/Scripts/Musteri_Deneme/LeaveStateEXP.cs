@@ -6,7 +6,7 @@ public class LeaveStateEXP : BaseState<CustomerStateDataEXP>
 {
     public override void OnEnter()
     {
-        StateData.Animator.SetBool("isSitting", false);  // Oturma animasyonunu baþlat
+        StateData.Animator.SetBool("isSitting", false);  // Oturma animasyonunu kapat
         StateData.Animator.SetBool("isWalking", true);
         StateData.Agent.SetDestination(StateData.ExitTarget.position);
     }
@@ -15,18 +15,35 @@ public class LeaveStateEXP : BaseState<CustomerStateDataEXP>
     {
         if (!StateData.Agent.pathPending && StateData.Agent.remainingDistance < 0.2f)
         {
-            // Masa boþ olarak iþaretlenir
-            MasaEXP masa = StateData.TableTarget.GetComponent<MasaEXP>();
-            if (masa != null)
+            // Masa boþ olarak iþaretlenir (Güvenli þekilde)
+            if (StateData.TableTarget != null)
             {
-                masa.IsEmpty = true;
+                Transform masaTransform = StateData.TableTarget;
+
+                MasaEXP masa = masaTransform.GetComponent<MasaEXP>() ??
+                               masaTransform.GetComponentInParent<MasaEXP>() ??
+                               masaTransform.GetComponentInChildren<MasaEXP>();
+
+                if (masa != null)
+                {
+                    masa.IsEmpty = true;
+                    Debug.Log($"{masa.name} boþ olarak iþaretlendi.");
+                }
+                else
+                {
+                    Debug.LogWarning($"MasaEXP bulunamadý! TableTarget objesi: {masaTransform.name}");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("TableTarget null, masa boþ olarak iþaretlenemedi.");
             }
 
             // NPC'yi yok etmek yerine havuza iade et
             NPCEXP npc = StateData.Agent.GetComponent<NPCEXP>();
             if (npc != null && npc.OwnerPool != null)
             {
-                //sýfýrlama burada gerçekleþecek
+                // Ýsteðe baðlý: State sýfýrlama vb. burada yapýlabilir
                 StateMachineHandler.AddState(new MoveToTableStateEXP(), StateData);
                 npc.OwnerPool.Release(npc);
             }

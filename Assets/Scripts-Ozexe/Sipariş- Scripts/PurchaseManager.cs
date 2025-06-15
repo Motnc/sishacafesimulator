@@ -16,31 +16,33 @@ public class PurchaseManager : MonoBehaviour
     public void BuyNargile()
     {
         SpawnKargo(nargilePrefab);
-       
+
+
     }
 
     public void BuyMasa()
     {
         SpawnKargo(masaPrefab);
-        
+
     }
 
     public void BuySandalye()
     {
         SpawnKargo(sandalyePrefab);
-        
+        EconomyManager.Instance.TrySpendMoney(200);
+
     }
 
     public void BuyHamburger()
     {
         SpawnDirect(hamburgerPrefab, hamburgerSpawnPoint);
-        
+
     }
 
     public void BuyCay()
     {
         SpawnDirect(cayPrefab, caySpawnPoint);
-        
+
     }
 
     private void SpawnKargo(GameObject productPrefab)
