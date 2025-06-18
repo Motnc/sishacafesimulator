@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6712619510454345541}
   - component: {fileID: 8596369846357253831}
   m_Layer: 6
-  m_Name: burger_1_lod0
+  m_Name: Hamburger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,3 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodName: Hamburger
+  Price: 0

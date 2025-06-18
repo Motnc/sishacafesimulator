@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using MemoryPool;
 
 public class ShopOpenTimer : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class ShopOpenTimer : MonoBehaviour
 
     private bool timerRunning = false;
 
+    public NPCPoolTestEXP npcPool; // NPC pool referansý
+
     public void StartTimer()
     {
         if (!timerRunning)
         {
             timerRunning = true;
             StartCoroutine(CountdownTimer());
+            npcPool.StartSpawning(); // Zamanlayýcý baþlatýldýðýnda NPC spawn'ý baþlat
         }
     }
 
@@ -35,6 +39,8 @@ public class ShopOpenTimer : MonoBehaviour
         timerText.text = "00:00";
         dayCompleteText.gameObject.SetActive(true);
         dayCompleteText.text = "1. Gün Tamamlandý.";
+
+        npcPool.StopSpawning(); // Zamanlayýcý bittiðinde NPC spawn'ý durdur
     }
 
     void UpdateTimerUI(float time)

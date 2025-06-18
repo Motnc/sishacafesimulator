@@ -14,6 +14,8 @@ namespace MemoryPool
 
         private ObjectPoolPrefab<NPCEXP> _npcPool;
 
+        private bool isSpawningActive = false; // NPC spawning aktif mi?
+
         private void Start()
         {
             _npcPool = new ObjectPoolPrefab<NPCEXP>(5, npcPrefab, npcPoolParent);
@@ -23,12 +25,24 @@ namespace MemoryPool
 
         private void Update()
         {
+            if (!isSpawningActive) return; // Eðer spawn aktif deðilse, bu fonksiyonu atla.
+
             spawnTimer += Time.deltaTime;
 
             if (MasaManagerEXP.Instance != null && MasaManagerEXP.Instance.masalar.Count > 0)
             {
                 TrySpawnNPCIfTableAvailable();
             }
+        }
+
+        public void StartSpawning()
+        {
+            isSpawningActive = true;
+        }
+
+        public void StopSpawning()
+        {
+            isSpawningActive = false;
         }
 
         private void TrySpawnNPCIfTableAvailable()

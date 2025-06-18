@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7686447278304559555}
   - component: {fileID: 4767643396261229855}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: POS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 8656639491288356021}
   - component: {fileID: 1444402013048276291}
   - component: {fileID: 624551875996507843}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandalye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 677579283241766123}
   - component: {fileID: 4027784450642703221}
   - component: {fileID: 1497438234099974916}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandalye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964756536156169353}
   - component: {fileID: 2282715325433261621}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: POS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 5178747322668827312}
   - component: {fileID: 4391193813549711692}
   - component: {fileID: 4013162496680354179}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: masasal (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 928241372374625745}
   - component: {fileID: 5342116470156797536}
   - component: {fileID: 4189001674563812132}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandalye (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 6556383621719799539}
   - component: {fileID: 2578081855390403745}
   - component: {fileID: 8470193526858708942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandalye (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6936935176845170820}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: OrderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,13 +745,14 @@ GameObject:
   - component: {fileID: 3296500675204213919}
   - component: {fileID: 2833150374389539}
   - component: {fileID: 7523268973117381059}
-  m_Layer: 0
+  - component: {fileID: 1746441849246584604}
+  m_Layer: 2
   m_Name: MASA_SANDALYE preview
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3296500675204213919
 Transform:
   m_ObjectHideFlags: 0
@@ -822,6 +823,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1746441849246584604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146533282129065267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0625ce078bd05334c9064fa63c826a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8168862453800758210
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6965916682272506102}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MoneyPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5246692607252660294}
   - component: {fileID: 4276828900826050587}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: POS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5126183216745898426}
   - component: {fileID: 899944716388792248}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: POS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
