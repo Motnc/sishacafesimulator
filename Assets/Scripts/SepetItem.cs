@@ -1,12 +1,12 @@
 public class SepetItem
 {
-    public Product product;
+    public ProductSO product;
     public int quantity;
 
-    public SepetItem(Product product)
+    public SepetItem(ProductSO product)
     {
         this.product = product;
-        this.quantity = 1;
+        quantity = 1;
     }
 
     public float GetTotalPrice()
@@ -14,4 +14,9 @@ public class SepetItem
         return product.price * quantity;
     }
 }
+
+
+
+
+
 

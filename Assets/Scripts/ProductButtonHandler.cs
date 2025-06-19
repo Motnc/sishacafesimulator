@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class ProductButtonHandler : MonoBehaviour
 {
-    public Product product;
+    public ProductSO product;
     public SepetManager sepetManager;
 
     public void Add()
     {
+        Debug.Log("Butona basýldý: " + product.productName);
         sepetManager.AddToCart(product);
     }
 
@@ -15,3 +16,10 @@ public class ProductButtonHandler : MonoBehaviour
         sepetManager.RemoveFromCart(product);
     }
 }
+
+
+
+
+
+
+
