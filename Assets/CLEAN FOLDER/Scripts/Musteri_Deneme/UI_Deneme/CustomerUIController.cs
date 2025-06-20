@@ -1,23 +1,30 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class CustomerUIController : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI orderText;
+    [SerializeField] private Image orderImage;
+    [SerializeField] private Image emotionImage;
 
-    private void Start()
+    public void SetOrderSprite(Sprite sprite)
     {
-        SetOrderText(""); // Baþlangýçta boþ yazý
+        Debug.Log("SetOrderSprite çaðrýldý: " + sprite?.name);
+        orderImage.sprite = sprite;
+        orderImage.gameObject.SetActive(sprite != null);
     }
-
-    public void SetOrderText(string text)
+    public void SetEmotionSprite(Sprite sprite)
     {
-        orderText.text = text;
-        orderText.gameObject.SetActive(!string.IsNullOrEmpty(text));
+        emotionImage.sprite = sprite;
+        emotionImage.gameObject.SetActive(sprite != null);
     }
-
-    public void DeleteOrderText()
+    public void ClearEmotion()
     {
-        SetOrderText("");
+        emotionImage.sprite = null;
+        emotionImage.gameObject.SetActive(false);
+    }
+    public void DeleteOrderSprite()
+    {
+        SetOrderSprite(null);
+        orderImage.gameObject.SetActive(false);
     }
 }

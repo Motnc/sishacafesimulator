@@ -3,17 +3,23 @@ using BeykozEdu.FSM;
 
 public class OrderStateEXP : BaseState<CustomerStateDataEXP>
 {
-    //so þeklinde bilgi çekicez
-    string[] orders = { "Nargile", "Çay", "Hamburger" };
-
     public override void OnEnter()
     {
-        StateData.SelectedOrder = orders[Random.Range(0, orders.Length)];
+        if (StateData.OrderDatabase == null || StateData.OrderDatabase.orders.Count == 0)
+        {
+            Debug.LogError("Order database boþ veya atanmamýþ!");
+            return;
+        }
+
+        var order = StateData.OrderDatabase.orders[Random.Range(0, StateData.OrderDatabase.orders.Count)];
+        StateData.SelectedOrder = order.orderName;
+
         Debug.Log("Müþteri sipariþ verdi: " + StateData.SelectedOrder);
+        Debug.Log("Sprite atanýyor: " + order.orderSprite?.name);
 
-        StateData.UIController?.SetOrderText(StateData.SelectedOrder);
+        StateData.UIController?.SetOrderSprite(order.orderSprite);
+        StateData.OnOrderSelected?.Invoke(order.orderName);
 
-        StateData.OnOrderSelected?.Invoke(StateData.SelectedOrder);
         StateMachineHandler.AddState(new WaitForFoodStateEXP(), StateData);
     }
 

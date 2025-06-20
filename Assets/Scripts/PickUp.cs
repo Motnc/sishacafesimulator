@@ -47,7 +47,7 @@ public class PickUp : MonoBehaviour
         if (hit.collider != null)
         {
             Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-            if (hit.collider.GetComponent<Food>() || hit.collider.GetComponent<Item>())
+            if (hit.collider.GetComponent<Food>() || hit.collider.GetComponent<Item>() || hit.collider.GetComponent<KargoDizim>())
             {
                 inHandItem = hit.collider.gameObject;
 
@@ -80,7 +80,14 @@ public class PickUp : MonoBehaviour
 
     private void Use(InputAction.CallbackContext obj)
     {
-        // Kullaným mekaniði buraya gelebilir
+        if (inHandItem != null)
+        {
+            IUsable usable = inHandItem.GetComponent<IUsable>();
+            if (usable != null)
+            {
+                usable.Use(this.gameObject);
+            }
+        }
     }
 
     private void Drop(InputAction.CallbackContext obj)
@@ -95,6 +102,7 @@ public class PickUp : MonoBehaviour
 
             inHandItem.transform.SetParent(null);
             inHandItem.transform.position = playerCameraTransform.position + playerCameraTransform.forward * 1f;
+            inHandItem.transform.localScale = Vector3.one; //  scale düzeltme
 
             if (rb != null)
             {
@@ -105,6 +113,7 @@ public class PickUp : MonoBehaviour
             inHandItem = null;
         }
     }
+
 
     private void Update()
     {
@@ -127,4 +136,11 @@ public class PickUp : MonoBehaviour
     {
         return inHandItem;
     }
+
+    public Transform GetCameraTransform()
+    {
+        return playerCameraTransform;
+    }
+
+
 }

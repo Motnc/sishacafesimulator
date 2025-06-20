@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjeBuild : MonoBehaviour
@@ -35,12 +34,8 @@ public class ObjeBuild : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && ObjeOlusturulabilirmi)
             {
-                // Gerçek objeyi instantiate et
                 Instantiate(Objects[currentIndex], CurrentObject.transform.position, CurrentObject.transform.rotation);
-
                 objeYerlestirildi = true;
-
-                // Preview objeyi yok et
                 Destroy(CurrentObject);
                 CurrentObject = null;
             }
@@ -49,23 +44,19 @@ public class ObjeBuild : MonoBehaviour
 
     public void SetCurrentObject(int index)
     {
-        if (index >= 0 && index < ObjectsPreview.Length && !objeYerlestirildi)
+        if (index >= 0 && index < ObjectsPreview.Length)
         {
-            // Önce var olan preview objeyi yok et
             if (CurrentObject != null)
             {
                 Destroy(CurrentObject);
             }
 
             currentIndex = index;
+            objeYerlestirildi = false; // Her yerleþtirmede sýfýrlanýr
 
-            // Prefab'ý sahneye instantiate et
             CurrentObject = Instantiate(ObjectsPreview[index]);
-
-            // Emin olmak için aktif hale getir
             CurrentObject.SetActive(true);
 
-            // Artýk sahnede olduðu için Renderer.material eriþimi güvenli!
             Renderer objRenderer = CurrentObject.GetComponent<Renderer>();
             if (objRenderer != null)
             {
@@ -76,5 +67,10 @@ public class ObjeBuild : MonoBehaviour
                 Debug.LogWarning("Renderer bileþeni bulunamadý!");
             }
         }
+    }
+
+    public void ResetBuildState()
+    {
+        objeYerlestirildi = false;
     }
 }
