@@ -20,6 +20,7 @@ TagManager:
   - Ladder
   - Glass
   - HookahLid
+  - CamDolap
   layers:
   - Default
   - TransparentFX
