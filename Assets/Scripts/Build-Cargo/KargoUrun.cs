@@ -2,25 +2,21 @@ using UnityEngine;
 
 public class KargoUrun : MonoBehaviour
 {
-    [SerializeField] private int assignedIndex = -1;
+    [SerializeField] private int assignedIndex = 0;
     private bool isTriggered = false;
     private KargoController kargoController;
 
+    // Bu fonksiyon kargo tarafýndan çaðrýlýr
     public void Initialize(KargoController controller)
     {
         kargoController = controller;
-    }
-
-    void Start()
-    {
-        Debug.Log($"KargoUrun aktifleþti: {gameObject.name}");
 
         if (kargoController != null)
         {
-            kargoController.CloseKargo(); // Animasyonu tetikle
+            kargoController.CloseKargo(); // Kapama animasyonu tetikle
         }
 
-        TriggerObjeBuild(); // ObjeBuild sistemini tetikle
+        TriggerObjeBuild(); // Yerleþtirme sistemini burada tetikle
     }
 
     private void TriggerObjeBuild()
@@ -30,6 +26,7 @@ public class KargoUrun : MonoBehaviour
         ObjeBuild objeBuild = GameObject.FindWithTag("GameManager")?.GetComponent<ObjeBuild>();
         if (objeBuild != null && assignedIndex >= 0)
         {
+            objeBuild.ResetBuildState(); // Gerekirse yerleþtirme durumu sýfýrlanýr
             objeBuild.SetCurrentObject(assignedIndex);
             Debug.Log($"Obje {assignedIndex} seçildi ve aktif edildi.");
             isTriggered = true;

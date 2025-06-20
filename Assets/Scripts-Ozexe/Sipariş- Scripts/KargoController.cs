@@ -7,7 +7,7 @@ public class KargoController : MonoBehaviour
     private GameObject productPrefab;
     private bool isOpened = false;
 
-    [SerializeField] private float spawnDelay = 1.5f; // Animasyon süresi kadar gecikme
+    [SerializeField] private float spawnDelay = 1.5f;
 
     public void SetProduct(GameObject product)
     {
@@ -23,8 +23,6 @@ public class KargoController : MonoBehaviour
                 OpenKargo();
             }
         }
-
-        
     }
 
     private void OpenKargo()
@@ -65,11 +63,12 @@ public class KargoController : MonoBehaviour
             urun.transform.localScale = Vector3.one * 0.1f;
         }
 
-        // Ürüne bu KargoController referansýný gönder
+        // Ürüne Kargo referansý gönder
         KargoUrun urunScript = urun.GetComponent<KargoUrun>();
         if (urunScript != null)
         {
-            urunScript.Initialize(this);
+            urunScript.Initialize(this); // Sadece burasý tetikliyor
+            Destroy(urun);
         }
     }
 

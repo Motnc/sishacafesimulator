@@ -17,6 +17,9 @@ public class CustomerFSMControllerEXP : MonoBehaviour
     [Header("UI")]
     public CustomerUIController UIController;
 
+    [Header("Order")]
+    public OrderDatabase OrderDatabase;
+
     private bool isFSMActive = false;
 
     private void Start()
@@ -50,8 +53,10 @@ public class CustomerFSMControllerEXP : MonoBehaviour
             MoneyPrefab = MoneyPrefab,
             MoneyPosition = MoneyPosition,
             IsOrderDelivered = false,
-            UIController = UIController
+            UIController = UIController,
+            OrderDatabase = OrderDatabase // Burasý önemli
         };
+
 
         Handler = new StateMachineHandler<CustomerStateDataEXP>();
         Handler.AddState(new MoveToTableStateEXP(), Data);

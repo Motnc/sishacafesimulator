@@ -16,4 +16,6 @@ public class CustomerStateDataEXP : IBaseStateData
     public System.Action<string> OnOrderSelected;
 
     public CustomerUIController UIController;
+
+    public OrderDatabase OrderDatabase;
 }

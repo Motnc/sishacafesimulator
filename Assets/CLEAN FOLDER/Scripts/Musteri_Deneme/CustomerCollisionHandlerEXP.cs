@@ -25,7 +25,7 @@ public class CustomerCollisionHandlerEXP : MonoBehaviour
             else
             {
                 controller.Data.IsOrderDelivered = false;
-                controller.Data.UIController?.DeleteOrderText();
+                controller.Data.UIController?.DeleteOrderSprite();
                 controller.Handler.AddState(new LeaveStateEXP(), controller.Data);
             }
 

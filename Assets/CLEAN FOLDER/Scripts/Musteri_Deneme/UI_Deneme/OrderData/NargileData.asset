@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac403801154fa784a91d6b81aa515cc1, type: 3}
+  m_Name: NargileData
+  m_EditorClassIdentifier: 
+  orderName: Nargile
+  orderSprite: {fileID: 21300000, guid: 3c5f3630f3cf6234bb5cb4a5f1ffcb7b, type: 3}
+  waitStage1: {fileID: 21300000, guid: 0e150d05b08d41d48ad498b6b23b1069, type: 3}
+  waitStage2: {fileID: 21300000, guid: 0352192e1387eff489ca57c11ae4fc2a, type: 3}
+  waitStage3: {fileID: 21300000, guid: d6bd69bf7a2af2f40b25ede2a90da358, type: 3}
