@@ -31,7 +31,7 @@ public class AromaInteraction : MonoBehaviour
             Ray ray = new Ray(playerCamera.position, playerCamera.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactionRange))
             {
-                if (hit.collider.CompareTag("Hookah"))
+                if (hit.collider.CompareTag("Platform"))
                 {
                     StartCoroutine(PlaceTobaccoRoutine());
                 }
