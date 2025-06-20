@@ -1,5 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
+=======
+--- !u!1 &647954870335023552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9178149001206588385}
+  m_Layer: 6
+  m_Name: Tobacco Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9178149001206588385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647954870335023552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.003, y: 0.7492, z: 0.0013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6289238693961256164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6771417401992246049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6630703550632410982}
+  m_Layer: 6
+  m_Name: NargileCoalHoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6630703550632410982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771417401992246049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.001, y: 0.793, z: 0.002}
+  m_LocalScale: {x: 1.4331, y: 1.4331002, z: 1.4331}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6289238693961256164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> origin/ozexe.outro
 --- !u!1001 &5822420086208506639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14,6 +79,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1fd296d8d1a2af749b875e0c14fb58c2, type: 2}
     - target: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: -4.175239
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
@@ -23,6 +89,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.6071411
+=======
+      value: 358.373
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.115
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 351.695
+>>>>>>> origin/ozexe.outro
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
       propertyPath: m_LocalRotation.w
@@ -56,6 +133,13 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9017b2004fecbd24fad05d4f5e9251f8, type: 2}
+<<<<<<< HEAD
+=======
+    - target: {fileID: -3471545008775035977, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+>>>>>>> origin/ozexe.outro
     - target: {fileID: -3146414398640751531, guid: a21c518a67da41444a183aabc3af3334, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -64,6 +148,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ana_Nargile
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 919132149155446097, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_TagString
+      value: Hookah
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044200512948827372, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.099
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044200512948827372, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.083
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044200512948827372, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545075498795692381, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958118812076548932, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+>>>>>>> origin/ozexe.outro
     - target: {fileID: 7683973440194354044, guid: a21c518a67da41444a183aabc3af3334, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -86,6 +201,97 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3db9f983d8d721640bbcc91eed738f93, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
+<<<<<<< HEAD
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+=======
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6630703550632410982}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9178149001206588385}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3987297043359968314}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6506227773409390585}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2872030177492461191}
+  m_SourcePrefab: {fileID: 100100000, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+--- !u!4 &6289238693961256164 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+  m_PrefabInstance: {fileID: 5822420086208506639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6632691648533075550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a21c518a67da41444a183aabc3af3334, type: 3}
+  m_PrefabInstance: {fileID: 5822420086208506639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &3987297043359968314
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632691648533075550}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6506227773409390585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632691648533075550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d95652c0fa91544a6c371dafac4c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2872030177492461191
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632691648533075550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.52301025, y: 0.79644513, z: 0.25552154}
+  m_Center: {x: -0.012817383, y: 0.40155154, z: 0}
+>>>>>>> origin/ozexe.outro
