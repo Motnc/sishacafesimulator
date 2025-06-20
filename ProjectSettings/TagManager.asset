@@ -16,6 +16,10 @@ TagManager:
   - AromaLid
   - NPC
   - OpenSign
+  - LadderLandingPad
+  - Ladder
+  - Glass
+  - HookahLid
   layers:
   - Default
   - TransparentFX
