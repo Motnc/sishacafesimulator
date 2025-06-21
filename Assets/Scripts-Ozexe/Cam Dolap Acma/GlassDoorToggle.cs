@@ -2,38 +2,34 @@ using UnityEngine;
 
 public class GlassDoorToggle : MonoBehaviour
 {
+    private Animator animator;
+
+    [Header("Raycast Ayarlarý")]
     public Camera playerCamera;
     public float rayDistance = 3f;
-    public Animator glassAnimator;
-    public string targetTag = "Glass";
+    public string glassTag = "Glass"; // Cam objelerinin tag'i
 
-    private bool isOpen = false;
-    private bool isAnimating = false;
-    public float animationCooldown = 1.2f; // Aç/kapa süresi
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        if (playerCamera == null)
+            playerCamera = Camera.main;
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isAnimating)
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, rayDistance))
             {
-                Debug.Log("Çarpýlan obje: " + hit.collider.name);
-
-                if (hit.collider.CompareTag(targetTag))
+                // Sadece bu objeye týklanýrsa
+                if (hit.collider.gameObject == gameObject && hit.collider.CompareTag(glassTag))
                 {
-                    glassAnimator.SetTrigger("Toggle");
-                    isOpen = !isOpen;
-                    isAnimating = true;
-                    Invoke(nameof(ResetAnimationFlag), animationCooldown);
-                    Debug.Log(isOpen ? "Açýlýyor" : "Kapanýyor");
+                    animator.SetTrigger("Toggle");
+                    Debug.Log($"Cam týklandý: {gameObject.name} – Toggle tetiklendi.");
                 }
             }
         }
-    }
-
-    void ResetAnimationFlag()
-    {
-        isAnimating = false;
     }
 }

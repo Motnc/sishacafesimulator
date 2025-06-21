@@ -186,4 +186,9 @@ public class PickUp : MonoBehaviour
     {
         return playerCameraTransform;
     }
+
+    public void ForceClearHand()
+    {
+        inHandItem = null;
+    }
 }

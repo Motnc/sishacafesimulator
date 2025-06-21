@@ -18,6 +18,7 @@ public class CleaningSystem : MonoBehaviour
     private Material currentTargetMaterial;
 
     public Animator mopAnimator; // Mop animatör referansı
+    public Animator bezAnimator; 
 
     void Start()
     {
@@ -64,6 +65,10 @@ public class CleaningSystem : MonoBehaviour
         if (mopAnimator != null)
         {
             mopAnimator.SetTrigger("Clean");
+        }
+        if (bezAnimator != null)
+        {
+            bezAnimator.SetTrigger("Clean");
         }
 
         Debug.Log("Temizlik başladı.");

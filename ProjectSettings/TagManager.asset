@@ -21,6 +21,8 @@ TagManager:
   - Glass
   - HookahLid
   - CamDolap
+  - MicrowavePlate
+  - MicrowaveButton
   layers:
   - Default
   - TransparentFX
@@ -34,7 +36,7 @@ TagManager:
   - AromaLayer
   - LidLayer
   - OpenSign
-  - 
+  - MicroWave_Interact
   - 
   - 
   - 
