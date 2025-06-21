@@ -1,5 +1,3 @@
-﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,23 +17,21 @@ public class PickUp : MonoBehaviour
     [SerializeField] private float hitRange = 3f;
     [SerializeField] private float throwForce;
 
-    [Header("Elde Taşıma Noktaları")]
+    [Header("Elde Ta��ma Noktalar�")]
     [SerializeField] private Transform defaultPickUpParent;
     [SerializeField] private List<CustomPickUp> customPickUpSettings;
 
     [Header("Inputlar")]
     [SerializeField] private InputActionReference interactionInput, dropInput, useInput;
 
+    [Header("Preview")]
+    [SerializeField] private Material previewMaterial;
+
     private GameObject inHandItem;
+    private GameObject previewObject;
+    private bool isPreviewing = false;
+
     private RaycastHit hit;
-
-    // ✅ Ekleme: Objeyi alırken scale'ini hatırlayalım
-    private Vector3 originalScale;
-
-    public void ForceClearHand()
-    {
-        inHandItem = null;
-    }
 
     private void Start()
     {
@@ -46,6 +42,33 @@ public class PickUp : MonoBehaviour
         interactionInput.action.performed += Interact;
         dropInput.action.performed += Drop;
         useInput.action.performed += Use;
+    }
+
+    private void Update()
+    {
+        Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
+
+        if (hit.collider != null)
+        {
+            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
+        }
+
+        if (!isPreviewing && inHandItem == null)
+        {
+            if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
+            {
+                hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+            }
+        }
+
+        if (isPreviewing && previewObject != null)
+        {
+            Ray ray = playerCameraTransform.GetComponent<Camera>().ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 10f))
+            {
+                previewObject.transform.position = hitInfo.point;
+            }
+        }
     }
 
     private void Interact(InputAction.CallbackContext obj)
@@ -59,16 +82,10 @@ public class PickUp : MonoBehaviour
             {
                 inHandItem = hit.collider.gameObject;
 
-                // ✅ Scale'ini kaydet
-                originalScale = inHandItem.transform.localScale;
-
                 Transform targetParent = GetCustomParent(inHandItem.name);
                 inHandItem.transform.SetParent(targetParent, false);
                 inHandItem.transform.localPosition = Vector3.zero;
                 inHandItem.transform.localRotation = Quaternion.identity;
-
-                // ✅ Scale bozulmasın
-                inHandItem.transform.localScale = originalScale;
 
                 if (rb != null)
                     rb.isKinematic = true;
@@ -80,16 +97,6 @@ public class PickUp : MonoBehaviour
                 return;
             }
         }
-    }
-
-    private Transform GetCustomParent(string objectName)
-    {
-        foreach (var custom in customPickUpSettings)
-        {
-            if (objectName.Contains(custom.objectName))
-                return custom.customParent;
-        }
-        return defaultPickUpParent;
     }
 
     private void Use(InputAction.CallbackContext obj)
@@ -106,45 +113,68 @@ public class PickUp : MonoBehaviour
 
     private void Drop(InputAction.CallbackContext obj)
     {
-        if (inHandItem != null)
+        if (inHandItem == null) return;
+
+        if (!isPreviewing)
         {
-            Rigidbody rb = inHandItem.GetComponent<Rigidbody>();
-            Collider col = inHandItem.GetComponent<Collider>();
-
-            if (col != null)
-                col.enabled = true;
-
-            inHandItem.transform.SetParent(null);
-            inHandItem.transform.position = playerCameraTransform.position + playerCameraTransform.forward * 1f;
-
-            // ✅ Scale'ini eski haline döndür
-            inHandItem.transform.localScale = originalScale;
-
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-                rb.AddForce(playerCameraTransform.forward * throwForce, ForceMode.Impulse);
-            }
-
-            inHandItem = null;
+            StartPreview();
+        }
+        else
+        {
+            PlaceObject();
         }
     }
 
-    private void Update()
+    private void StartPreview()
     {
-        Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * hitRange, Color.red);
+        if (inHandItem == null) return;
 
-        if (hit.collider != null)
+        previewObject = Instantiate(inHandItem);
+        DestroyImmediate(previewObject.GetComponent<Rigidbody>());
+        DestroyImmediate(previewObject.GetComponent<Collider>());
+
+        // Material de�i�imi
+        Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
+        foreach (var rend in renderers)
         {
-            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
+            rend.material = previewMaterial;
         }
 
-        if (inHandItem != null) return;
+        isPreviewing = true;
+    }
 
-        if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, hitRange, pickableLayerMask))
+    private void PlaceObject()
+    {
+        if (previewObject == null || inHandItem == null) return;
+
+        GameObject placedObj = Instantiate(inHandItem);
+        placedObj.transform.position = previewObject.transform.position;
+        placedObj.transform.rotation = previewObject.transform.rotation;
+
+        var rb = placedObj.GetComponent<Rigidbody>();
+        if (rb != null)
+            rb.isKinematic = false;
+
+        var col = placedObj.GetComponent<Collider>();
+        if (col != null)
+            col.enabled = true;
+
+        Destroy(previewObject);
+        previewObject = null;
+        isPreviewing = false;
+
+        Destroy(inHandItem);
+        inHandItem = null;
+    }
+
+    private Transform GetCustomParent(string objectName)
+    {
+        foreach (var custom in customPickUpSettings)
         {
-            hit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
+            if (objectName.Contains(custom.objectName))
+                return custom.customParent;
         }
+        return defaultPickUpParent;
     }
 
     public GameObject GetHeldItem()
@@ -155,5 +185,10 @@ public class PickUp : MonoBehaviour
     public Transform GetCameraTransform()
     {
         return playerCameraTransform;
+    }
+
+    public void ForceClearHand()
+    {
+        inHandItem = null;
     }
 }
