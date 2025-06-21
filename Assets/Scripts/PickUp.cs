@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +19,7 @@ public class PickUp : MonoBehaviour
     [SerializeField] private float hitRange = 3f;
     [SerializeField] private float throwForce;
 
-    [Header("Elde Ta��ma Noktalar�")]
+    [Header("Elde Taşıma Noktaları")]
     [SerializeField] private Transform defaultPickUpParent;
     [SerializeField] private List<CustomPickUp> customPickUpSettings;
 
@@ -28,6 +28,14 @@ public class PickUp : MonoBehaviour
 
     private GameObject inHandItem;
     private RaycastHit hit;
+
+    // ✅ Ekleme: Objeyi alırken scale'ini hatırlayalım
+    private Vector3 originalScale;
+
+    public void ForceClearHand()
+    {
+        inHandItem = null;
+    }
 
     private void Start()
     {
@@ -51,10 +59,16 @@ public class PickUp : MonoBehaviour
             {
                 inHandItem = hit.collider.gameObject;
 
+                // ✅ Scale'ini kaydet
+                originalScale = inHandItem.transform.localScale;
+
                 Transform targetParent = GetCustomParent(inHandItem.name);
                 inHandItem.transform.SetParent(targetParent, false);
                 inHandItem.transform.localPosition = Vector3.zero;
                 inHandItem.transform.localRotation = Quaternion.identity;
+
+                // ✅ Scale bozulmasın
+                inHandItem.transform.localScale = originalScale;
 
                 if (rb != null)
                     rb.isKinematic = true;
@@ -102,7 +116,9 @@ public class PickUp : MonoBehaviour
 
             inHandItem.transform.SetParent(null);
             inHandItem.transform.position = playerCameraTransform.position + playerCameraTransform.forward * 1f;
-            inHandItem.transform.localScale = Vector3.one; //  scale d�zeltme
+
+            // ✅ Scale'ini eski haline döndür
+            inHandItem.transform.localScale = originalScale;
 
             if (rb != null)
             {
@@ -113,7 +129,6 @@ public class PickUp : MonoBehaviour
             inHandItem = null;
         }
     }
-
 
     private void Update()
     {
@@ -141,6 +156,4 @@ public class PickUp : MonoBehaviour
     {
         return playerCameraTransform;
     }
-
-
 }
