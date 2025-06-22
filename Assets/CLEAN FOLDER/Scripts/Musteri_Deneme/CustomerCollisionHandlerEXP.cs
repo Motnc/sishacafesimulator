@@ -12,7 +12,17 @@ public class CustomerCollisionHandlerEXP : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // Bu kýsým isteðe baðlý kalabilir
         var food = collision.gameObject.GetComponent<FoodItem>();
+        if (food != null)
+        {
+            DeliverFood(collision.gameObject);
+        }
+    }
+
+    public void DeliverFood(GameObject foodObj)
+    {
+        var food = foodObj.GetComponent<FoodItem>();
         if (food != null)
         {
             var expectedOrder = controller.Data.SelectedOrder;
@@ -29,7 +39,7 @@ public class CustomerCollisionHandlerEXP : MonoBehaviour
                 controller.Handler.AddState(new LeaveStateEXP(), controller.Data);
             }
 
-            Destroy(collision.gameObject); // yemeði yok et
+            Destroy(foodObj); // Yemeði yok et
         }
     }
 }

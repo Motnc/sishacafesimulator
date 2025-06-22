@@ -7,6 +7,7 @@ public class NPCManagerEXP : MonoBehaviour
     [SerializeField] private Transform defaultSeatPosition;
     [SerializeField] private Transform defaultExitPoint;
     [SerializeField] private GameObject defaultMoneyPrefab;
+    [SerializeField] private GameObject defaultDirtyPrefab; //  EKLENDÝ
     [SerializeField] private Transform defaultMoneyPosition;
 
     private void Update()
@@ -27,7 +28,9 @@ public class NPCManagerEXP : MonoBehaviour
                         defaultSeatPosition,
                         defaultExitPoint,
                         defaultMoneyPrefab,
+                        defaultDirtyPrefab, //  EKLENDÝ
                         defaultMoneyPosition,
+                        null, // DirtyPosition yok default olarak
                         ui
                     );
                 }

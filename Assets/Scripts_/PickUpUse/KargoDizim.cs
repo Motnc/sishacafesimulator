@@ -11,6 +11,26 @@ public class KargoDizim : MonoBehaviour, IUsable
 
     private Queue<GameObject> camDolaptanGeriAlinacaklar = new Queue<GameObject>();
 
+    private void Start()
+    {
+        for (int i = 0; i < itemsToPlace.Count && i < kargoSlotPoints.Count; i++)
+        {
+            GameObject item = itemsToPlace[i];
+            Transform slot = kargoSlotPoints[i];
+
+            item.transform.SetParent(slot);
+            item.transform.localPosition = Vector3.zero;
+            item.transform.localRotation = Quaternion.identity;
+
+            Rigidbody rb = item.GetComponent<Rigidbody>();
+            if (rb != null) rb.isKinematic = true;
+
+            Collider col = item.GetComponent<Collider>();
+            if (col != null) col.enabled = false;
+        }
+    }
+
+
     private void Update()
     {
         if (Keyboard.current.gKey.wasPressedThisFrame)
