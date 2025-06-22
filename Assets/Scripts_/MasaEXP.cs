@@ -9,9 +9,11 @@ public class MasaEXP : MonoBehaviour
     public GameObject moneyPrefab;
     public Transform moneySpawnPoint;
 
+    public GameObject dirtyPrefab;        //  EKLENDÝ
+    public Transform dirtySpawnPoint;     //  Daha önceden eklenmiþti
+
     private void Start()
     {
-        // Eðer sahnede MasaManager varsa kendini ekler
         if (MasaManagerEXP.Instance != null && !MasaManagerEXP.Instance.masalar.Contains(this))
         {
             MasaManagerEXP.Instance.masalar.Add(this);

@@ -4,6 +4,8 @@ using BeykozEdu.FSM;
 
 public class MoveToTableStateEXP : BaseState<CustomerStateDataEXP>
 {
+    private bool hasWarpedInUpdate = false;
+
     public override void OnEnter()
     {
         if (StateData.TableTarget == null || StateData.SeatPosition == null ||
@@ -20,23 +22,14 @@ public class MoveToTableStateEXP : BaseState<CustomerStateDataEXP>
             return;
         }
 
-        //  Agent NavMesh üzerinde deðilse warp ile oturt
+        TryWarpToNavMesh();
+
         if (!StateData.Agent.isOnNavMesh)
         {
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(StateData.Agent.transform.position, out hit, 2f, NavMesh.AllAreas))
-            {
-                StateData.Agent.Warp(hit.position); //  Doðru yöntem
-                Debug.Log("Agent NavMesh'e Warp ile yerleþtirildi.");
-            }
-            else
-            {
-                Debug.LogError("Agent NavMesh'e yerleþtirilemedi.");
-                return;
-            }
+            Debug.LogError("Agent NavMesh'e yerleþtirilemedi (OnEnter sonrasý).");
+            return;
         }
 
-        //  Güzergah belirle
         bool destinationSet = StateData.Agent.SetDestination(StateData.TableTarget.position);
         if (!destinationSet)
         {
@@ -49,14 +42,36 @@ public class MoveToTableStateEXP : BaseState<CustomerStateDataEXP>
 
     public override void OnUpdate()
     {
-        // NavMesh’te deðilse iþlem yapýlmaz
-        if (StateData.Agent == null || !StateData.Agent.isOnNavMesh)
+        if (StateData.Agent == null)
         {
-            Debug.LogWarning("Agent NavMesh üzerinde deðil, update iþlemi durduruldu.");
+            Debug.LogWarning("NavMeshAgent null, update durduruldu.");
             return;
         }
 
-        // Hedefe ulaþtý mý?
+        if (!StateData.Agent.isOnNavMesh)
+        {
+            if (!hasWarpedInUpdate)
+            {
+                Debug.LogWarning("Agent NavMesh üzerinde deðil, Update sýrasýnda tekrar Warp deneniyor...");
+                TryWarpToNavMesh();
+                hasWarpedInUpdate = true;
+
+                if (!StateData.Agent.isOnNavMesh)
+                {
+                    Debug.LogError("Update içinde Agent NavMesh'e alýnamadý.");
+                    return;
+                }
+
+                // Gidilecek hedef tekrar atanmalý
+                StateData.Agent.SetDestination(StateData.TableTarget.position);
+            }
+            else
+            {
+                Debug.LogWarning("Update içinde Warp denemesi baþarýsýz, iþlem durduruldu.");
+                return;
+            }
+        }
+
         if (!StateData.Agent.pathPending && StateData.Agent.remainingDistance < 0.2f)
         {
             StateData.Animator.SetBool("isWalking", false);
@@ -67,5 +82,15 @@ public class MoveToTableStateEXP : BaseState<CustomerStateDataEXP>
     public override void OnExit()
     {
         // Gerekirse animasyon ya da baþka þeyleri burada sýfýrlayabilirsin
+    }
+
+    private void TryWarpToNavMesh()
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(StateData.Agent.transform.position, out hit, 2f, NavMesh.AllAreas))
+        {
+            StateData.Agent.Warp(hit.position);
+            Debug.Log("Agent NavMesh'e Warp ile yerleþtirildi.");
+        }
     }
 }

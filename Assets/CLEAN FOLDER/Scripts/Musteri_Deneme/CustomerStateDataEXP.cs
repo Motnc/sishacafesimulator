@@ -8,14 +8,14 @@ public class CustomerStateDataEXP : IBaseStateData
     public Animator Animator;
     public Transform TableTarget;
     public Transform SeatPosition;
-    public Transform ExitTarget;   // MASA’YA ÖZEL ÇIKIÞ NOKTASI
+    public Transform ExitTarget;
     public Transform MoneyPosition;
     public GameObject MoneyPrefab;
+    public GameObject DirtyPrefab;
+    public Transform DirtyPosition;
     public string SelectedOrder;
     public bool IsOrderDelivered;
     public System.Action<string> OnOrderSelected;
-
     public CustomerUIController UIController;
-
     public OrderDatabase OrderDatabase;
 }

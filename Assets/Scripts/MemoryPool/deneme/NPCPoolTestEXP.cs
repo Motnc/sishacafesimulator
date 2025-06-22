@@ -12,9 +12,11 @@ namespace MemoryPool
         [SerializeField] private float spawnInterval = 3f;
         private float spawnTimer = 0f;
 
-        private ObjectPoolPrefab<NPCEXP> _npcPool;
+        [Header("Sabit Çýkýþ Noktasý")]
+        [SerializeField] private Transform globalExitPoint; //  yeni alan
 
-        private bool isSpawningActive = false; // NPC spawning aktif mi?
+        private ObjectPoolPrefab<NPCEXP> _npcPool;
+        private bool isSpawningActive = false;
 
         private void Start()
         {
@@ -25,12 +27,13 @@ namespace MemoryPool
 
         private void Update()
         {
-            if (!isSpawningActive) return; // Eðer spawn aktif deðilse, bu fonksiyonu atla.
+            if (!isSpawningActive) return;
 
             spawnTimer += Time.deltaTime;
 
-            if (MasaManagerEXP.Instance != null && MasaManagerEXP.Instance.masalar.Count > 0)
+            if (spawnTimer >= spawnInterval)
             {
+                spawnTimer = 0f;
                 TrySpawnNPCIfTableAvailable();
             }
         }
@@ -47,10 +50,11 @@ namespace MemoryPool
 
         private void TrySpawnNPCIfTableAvailable()
         {
-            if (spawnTimer < spawnInterval)
+            if (MasaManagerEXP.Instance == null || MasaManagerEXP.Instance.masalar.Count == 0)
+            {
+                Debug.LogWarning("MasaManager yok ya da masa sayýsý 0.");
                 return;
-
-            spawnTimer = 0f;
+            }
 
             MasaEXP emptyTable = MasaManagerEXP.Instance.GetEmptyMasa();
             if (emptyTable == null)
@@ -90,12 +94,20 @@ namespace MemoryPool
 
             if (customer != null)
             {
+                if (globalExitPoint == null)
+                {
+                    Debug.LogError("globalExitPoint sahnede atanmamýþ!");
+                    return;
+                }
+
                 customer.Setup(
                     emptyTable.table,
                     emptySeat.transform,
-                    emptyTable.exitPoint,
+                    globalExitPoint, //  sabit çýkýþ noktasý
                     emptyTable.moneyPrefab,
+                    emptyTable.dirtyPrefab,
                     emptyTable.moneySpawnPoint,
+                    emptyTable.dirtySpawnPoint,
                     ui
                 );
             }

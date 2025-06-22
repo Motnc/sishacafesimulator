@@ -12,7 +12,9 @@ public class CustomerFSMControllerEXP : MonoBehaviour
     public Transform SeatPosition;
     public Transform ExitTarget;
     public GameObject MoneyPrefab;
+    public GameObject DirtyPrefab;
     public Transform MoneyPosition;
+    public Transform DirtyPosition; // <-- Burayý ekledim
 
     [Header("UI")]
     public CustomerUIController UIController;
@@ -51,32 +53,52 @@ public class CustomerFSMControllerEXP : MonoBehaviour
             SeatPosition = SeatPosition,
             ExitTarget = ExitTarget,
             MoneyPrefab = MoneyPrefab,
+            DirtyPrefab = DirtyPrefab,
             MoneyPosition = MoneyPosition,
+            DirtyPosition = DirtyPosition, // <-- Burada atandý
             IsOrderDelivered = false,
             UIController = UIController,
-            OrderDatabase = OrderDatabase // Burasý önemli
+            OrderDatabase = OrderDatabase
         };
-
-
-        Handler = new StateMachineHandler<CustomerStateDataEXP>();
-        Handler.AddState(new MoveToTableStateEXP(), Data);
 
         MasaEXP masa = TableTarget.GetComponent<MasaEXP>();
         if (masa != null)
         {
             masa.IsEmpty = false;
+            // DirtyPosition'ý masa üzerinden alýyoruz
+            DirtyPosition = masa.dirtySpawnPoint;
+
+            if (DirtyPosition == null)
+            {
+                Debug.LogWarning($"Masa {masa.name} dirtySpawnPoint null!");
+            }
+            else
+            {
+                Debug.Log($"Masa {masa.name} dirtySpawnPoint atandý: {DirtyPosition.position}");
+            }
+
+            Data.DirtyPosition = DirtyPosition; // ve Data'ya ekliyoruz
         }
+        else
+        {
+            Debug.LogWarning($"TableTarget'da MasaEXP component bulunamadý! TableTarget: {TableTarget?.name ?? "null"}");
+        }
+
+        Handler = new StateMachineHandler<CustomerStateDataEXP>();
+        Handler.AddState(new MoveToTableStateEXP(), Data);
 
         isFSMActive = true;
     }
 
-    public void Setup(Transform table, Transform seat, Transform exitTarget, GameObject moneyPrefab, Transform moneyPosition, CustomerUIController uiController)
+    public void Setup(Transform table, Transform seat, Transform exitTarget, GameObject moneyPrefab, GameObject dirtyPrefab, Transform moneyPosition, Transform dirtyPosition, CustomerUIController uiController)
     {
         TableTarget = table;
         SeatPosition = seat;
         ExitTarget = exitTarget;
         MoneyPrefab = moneyPrefab;
+        DirtyPrefab = dirtyPrefab;
         MoneyPosition = moneyPosition;
+        DirtyPosition = dirtyPosition;  // <-- Setup parametrelerine eklendi
         UIController = uiController;
 
         if (Data == null)
@@ -92,9 +114,30 @@ public class CustomerFSMControllerEXP : MonoBehaviour
         Data.SeatPosition = SeatPosition;
         Data.ExitTarget = ExitTarget;
         Data.MoneyPrefab = MoneyPrefab;
+        Data.DirtyPrefab = DirtyPrefab;
         Data.MoneyPosition = MoneyPosition;
+        Data.DirtyPosition = DirtyPosition;  // <-- Data’ya da atandý
         Data.IsOrderDelivered = false;
         Data.UIController = UIController;
+
+        MasaEXP masa = TableTarget.GetComponent<MasaEXP>();
+        if (masa != null)
+        {
+            masa.IsEmpty = false;
+
+            if (DirtyPosition == null)
+            {
+                Debug.LogWarning($"Masa {masa.name} dirtySpawnPoint null!");
+            }
+            else
+            {
+                Debug.Log($"Masa {masa.name} dirtySpawnPoint atandý: {DirtyPosition.position}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"TableTarget'da MasaEXP component bulunamadý! TableTarget: {TableTarget?.name ?? "null"}");
+        }
 
         if (Handler == null)
         {
@@ -117,6 +160,6 @@ public class CustomerFSMControllerEXP : MonoBehaviour
 
     private bool IsSetupValid()
     {
-        return TableTarget != null && SeatPosition != null && ExitTarget != null && MoneyPrefab != null && MoneyPosition != null;
+        return TableTarget != null && SeatPosition != null && ExitTarget != null && MoneyPrefab != null && DirtyPrefab != null && MoneyPosition != null && DirtyPosition != null;
     }
 }

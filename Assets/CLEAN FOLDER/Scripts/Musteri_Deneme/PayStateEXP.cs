@@ -5,19 +5,35 @@ public class PayStateEXP : BaseState<CustomerStateDataEXP>
 {
     public override void OnEnter()
     {
+        Debug.Log("PayStateEXP OnEnter baþladý.");
+
         string orderedFood = StateData.SelectedOrder;
         int price = GetPriceForFood(orderedFood);
 
         GameObject moneyObj = GameObject.Instantiate(StateData.MoneyPrefab, StateData.MoneyPosition.position, Quaternion.identity);
-
-        // MoneyGain varsa fiyatý ata
         MoneyGain moneyGain = moneyObj.GetComponent<MoneyGain>();
-        if (moneyGain != null)
+        if (moneyGain != null) moneyGain.SetAmount(price);
+        Debug.Log($"Para objesi oluþturuldu. Sipariþ: {orderedFood}, Kazanç: {price}");
+
+        if (StateData.DirtyPrefab == null)
         {
-            moneyGain.SetAmount(price);
+            Debug.LogWarning("DirtyPrefab NULL!");
+        }
+        if (StateData.DirtyPosition == null)
+        {
+            Debug.LogWarning("DirtyPosition NULL!");
         }
 
-        Debug.Log($"Para objesi oluþturuldu. Sipariþ: {orderedFood}, Kazanç: {price}");
+        // Burayý kesinlikle çaðýr.
+        if (StateData.DirtyPrefab != null && StateData.DirtyPosition != null)
+        {
+            var dirtyObj = GameObject.Instantiate(StateData.DirtyPrefab, StateData.DirtyPosition.position, StateData.DirtyPosition.rotation);
+            Debug.Log("Kirli obje oluþturuldu: " + dirtyObj.name);
+        }
+        else
+        {
+            Debug.LogWarning("Kirli obje oluþturulamadý, prefab ya da pozisyon null!");
+        }
     }
 
     public override void OnUpdate()
