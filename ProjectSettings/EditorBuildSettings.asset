@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSon_Motnc.unity
     guid: d56f89dc996caed459510baba671d41f
   - enabled: 0
-    path: Assets/Scenes/LevelSon.unity
+    path: Assets/Scenes/LevelSon_ozexe.unity
     guid: 14ddad9c146d0004d9207a1485d43085
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}

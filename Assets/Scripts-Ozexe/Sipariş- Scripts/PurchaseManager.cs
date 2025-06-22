@@ -8,10 +8,14 @@ public class PurchaseManager : MonoBehaviour
     public GameObject sandalyePrefab;
     public GameObject hamburgerPrefab;
     public GameObject cayPrefab;
+    public GameObject aromaPrefab;
+    public GameObject isiticiPrefab;
 
     public Transform kargoSpawnPoint;
     public Transform hamburgerSpawnPoint;
     public Transform caySpawnPoint;
+    public Transform aromaSpawnPoint;
+    public Transform isiticiSpawnPoint;
 
     public void BuyNargile()
     {
@@ -48,6 +52,18 @@ public class PurchaseManager : MonoBehaviour
         EconomyManager.Instance.TrySpendMoney(20);
     }
 
+    public void BuyAroma()
+    {
+        SpawnDirect(aromaPrefab, aromaSpawnPoint);
+        EconomyManager.Instance.TrySpendMoney(50);
+    }
+
+    public void BuyIsitici()
+    {
+        SpawnDirect(isiticiPrefab, isiticiSpawnPoint);
+        EconomyManager.Instance.TrySpendMoney(50);
+    }
+
     private void SpawnKargo(GameObject productPrefab)
     {
         GameObject kapaliKargo = Instantiate(kargoKapaliPrefab, kargoSpawnPoint.position, Quaternion.identity);
@@ -81,6 +97,12 @@ public class PurchaseManager : MonoBehaviour
                 break;
             case "Cay":
                 SpawnDirect(cayPrefab, caySpawnPoint);
+                break;
+            case "Aroma":
+                SpawnDirect(aromaPrefab, aromaSpawnPoint);
+                break;
+            case "Isitici":
+                SpawnDirect(isiticiPrefab, isiticiSpawnPoint);
                 break;
             default:
                 Debug.LogWarning("Bilinmeyen ürün: " + itemName);
