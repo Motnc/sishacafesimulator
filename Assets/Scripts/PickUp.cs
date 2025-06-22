@@ -103,13 +103,35 @@ public class PickUp : MonoBehaviour
     {
         if (inHandItem != null)
         {
-            IUsable usable = inHandItem.GetComponent<IUsable>();
-            if (usable != null)
+            if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit hitInfo, hitRange))
             {
-                usable.Use(this.gameObject);
+                if (hitInfo.collider.CompareTag("Trash"))
+                {
+                    IUsable trashUsable = hitInfo.collider.GetComponent<IUsable>();
+                    trashUsable?.Use(this.gameObject);
+                    return;
+                }
+
+                IUsable usable = inHandItem.GetComponent<IUsable>();
+                if (usable != null)
+                {
+                    usable.Use(this.gameObject);
+                }
+            }
+        }
+        else
+        {
+            if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit hitInfo, hitRange))
+            {
+                IUsable usable = hitInfo.collider.GetComponent<IUsable>();
+                if (usable != null)
+                {
+                    usable.Use(this.gameObject);
+                }
             }
         }
     }
+
 
     private void Drop(InputAction.CallbackContext obj)
     {
