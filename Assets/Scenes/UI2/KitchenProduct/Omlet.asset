@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715939290b550074896f38744f271a93, type: 3}
+  m_Name: Omlet
+  m_EditorClassIdentifier: 
+  productName: Omlet
+  icon: {fileID: 21300000, guid: 7ff25e3062d6cc54b99eb83ebe0187db, type: 3}
+  preparationTime: 12

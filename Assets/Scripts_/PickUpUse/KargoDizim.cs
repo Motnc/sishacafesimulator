@@ -26,7 +26,7 @@ public class KargoDizim : MonoBehaviour, IUsable
             if (rb != null) rb.isKinematic = true;
 
             Collider col = item.GetComponent<Collider>();
-            if (col != null) col.enabled = false;
+            if (col != null) col.enabled = true;
         }
     }
 

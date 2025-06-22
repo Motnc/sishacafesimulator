@@ -23,6 +23,7 @@ TagManager:
   - CamDolap
   - MicrowavePlate
   - MicrowaveButton
+  - Trash
   layers:
   - Default
   - TransparentFX
