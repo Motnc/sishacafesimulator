@@ -220,12 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c358b664efdbb44c88cd5636294c0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  computerCamera: {fileID: 0}
+  computerCamera: {fileID: 1845533801347300965}
   computerCanvas: {fileID: 3836927821129098898}
   playerInput: {fileID: 0}
   crosshairUI: {fileID: 0}
   player: {fileID: 0}
-  interactionDistance: 5
+  interactionDistance: 2.5
 --- !u!1 &621771288462239146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,13 +3227,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3439057065043617261}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000059185215, y: 0.99997544, z: -0.000000060021236, w: -0.007012695}
-  m_LocalPosition: {x: -0.025, y: 0.255, z: 0.712}
+  m_LocalRotation: {x: -0.0015966368, y: 0.97370887, z: -0.22768822, w: -0.006828516}
+  m_LocalPosition: {x: -0.026, y: 0.39, z: 0.641}
   m_LocalScale: {x: 0.5715917, y: 0.57159185, z: 0.5715917}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2998886735867833103}
-  m_LocalEulerAnglesHint: {x: 0, y: 180.94, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.323, y: 180.804, z: 0}
 --- !u!114 &1845533801347300965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3788,14 +3788,14 @@ MonoBehaviour:
   sandalyePrefab: {fileID: 0}
   sandalyePrefab2: {fileID: 0}
   hamburgerPrefab: {fileID: 6707149475596137665, guid: 1f53044bab33e1847975ccbdc90224f9, type: 3}
-  cayPrefab: {fileID: 3617927547639217556, guid: ec27b76c800c58f44a9a14a4d9afc5a6, type: 3}
+  cayPrefab: {fileID: 6785817489471069648, guid: 5e684ea8781d3774f94e9132ab00120f, type: 3}
   mopPrefab: {fileID: 0}
   menemenPrefab: {fileID: 8103278212361475142, guid: b86da3356ec25a14fab64c9692608359, type: 3}
-  omletPrefab: {fileID: 919132149155446097, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
+  omletPrefab: {fileID: 7045395667258534647, guid: 8616dbb751e703a40907458273d5bc99, type: 3}
   portakalsuyuPrefab: {fileID: 0}
-  turkkahvesiPrefab: {fileID: 0}
-  sandvicPrefab: {fileID: 919132149155446097, guid: eab52c45dccbf8a489b5e5ff24b4b53e, type: 3}
-  tostPrefab: {fileID: 919132149155446097, guid: a1c762d2f3671b94ea5f9455e3ee82fb, type: 3}
+  turkkahvesiPrefab: {fileID: 8000548470388117252, guid: dedc6a0afa487684caa74c74a08b1cad, type: 3}
+  sandvicPrefab: {fileID: 1534809565689589017, guid: 9b3467e64a31691419e06aeeba211429, type: 3}
+  tostPrefab: {fileID: 1282790425262455255, guid: 714454c59095cbc42862ac58c2ba3e82, type: 3}
   komurPrefab: {fileID: 0}
   aromaPrefab: {fileID: 0}
   isiticiPrefab: {fileID: 0}

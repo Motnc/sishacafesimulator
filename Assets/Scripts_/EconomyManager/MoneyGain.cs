@@ -15,6 +15,7 @@ public class MoneyGain : MonoBehaviour
         {
             EconomyManager.Instance.AddMoney(Amount);
             Debug.Log($"Oyuncu {Amount} kazandý!");
+            AudioManager.Instance.PlayMoneySound();
             Destroy(gameObject); // Parayý yok et
         }
     }

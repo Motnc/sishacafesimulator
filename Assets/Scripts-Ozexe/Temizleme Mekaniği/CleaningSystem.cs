@@ -57,6 +57,7 @@ public class CleaningSystem : MonoBehaviour
 
     void StartCleaning()
     {
+        AudioManager.Instance.PlayMopSound();
         isCleaning = true;
         cleanTimer = 0f;
         cleaningCircleUI.fillAmount = 0f;

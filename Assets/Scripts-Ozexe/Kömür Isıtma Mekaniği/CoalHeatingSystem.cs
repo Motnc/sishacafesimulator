@@ -14,13 +14,13 @@ public class CoalHeatingSystem : MonoBehaviour
     public Material heatedMaterial;
     public float revertDelay = 10f;
 
-    public PickUp pickUpScript; // Elinde tuttuğun item yönetimi
-    public GameObject coal; // Kömür objesi referansı
+    public PickUp pickUpScript; 
+    public GameObject coal; 
 
-    public GameObject tong; // Maşa objesi
-    public Transform tongCoalHoldPoint; // Maşanın ortasında kömürün duracağı boş GameObject
-    public GameObject nargile; // Nargile prefabı
-    public Transform nargileCoalHoldPoint; // Nargilenin üstünde kömürün duracağı boş GameObject
+    public GameObject tong; 
+    public Transform tongCoalHoldPoint; 
+    public GameObject nargile; 
+    public Transform nargileCoalHoldPoint; 
 
     private bool isHeating = false;
     private float heatTimer = 0f;
@@ -41,19 +41,16 @@ public class CoalHeatingSystem : MonoBehaviour
             {
                 GameObject clickedObj = hit.collider.gameObject;
 
-                // Eğer elimizde kömür ısıtıcısı varsa ve kömüre tıklanmışsa ısıtmaya başla
                 if (IsHoldingHeater() && clickedObj == coal)
                 {
                     StartHeating();
                     currentCoalRenderer = coal.GetComponent<Renderer>();
                     originalMaterial = currentCoalRenderer.material;
                 }
-                // Elimde maşa varsa ve kömüre tıklanmışsa kömürü maşaya taşı
                 else if (IsHoldingTong() && clickedObj == coal)
                 {
                     PlaceCoalOnTong();
                 }
-                // Kömür maşanın üzerinde ve nargileye tıklanmışsa kömürü nargileye taşı
                 else if (clickedObj == nargile && IsCoalOnTong())
                 {
                     PlaceCoalOnNargile();
@@ -87,7 +84,6 @@ public class CoalHeatingSystem : MonoBehaviour
             return false;
 
         return pickUpScript.GetHeldItem().name.Contains("Masa") == false && pickUpScript.GetHeldItem().name.Contains("Tong");
-        // Yukarıdaki satırı elindeki maşa objenin adını uygun şekilde yazarsan değiştir
     }
 
     void StartHeating()

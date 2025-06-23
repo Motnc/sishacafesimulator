@@ -28,6 +28,7 @@ public class GlassDoorToggle : MonoBehaviour
                 {
                     animator.SetTrigger("Toggle");
                     Debug.Log($"Cam týklandý: {gameObject.name} – Toggle tetiklendi.");
+                    AudioManager.Instance.PlayLidSound();
                 }
             }
         }

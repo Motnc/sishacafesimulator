@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6790359624495435391
+--- !u!1 &7045395667258534647
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5117891360089831318}
-  - component: {fileID: 4184582713542617477}
-  - component: {fileID: 7581946137699925025}
+  - component: {fileID: 2819957225938345799}
+  - component: {fileID: 3385634835891795208}
+  - component: {fileID: 4004876576314682453}
+  - component: {fileID: 1354265835680287770}
+  - component: {fileID: 2063398690798670349}
+  - component: {fileID: 252304348819102209}
+  - component: {fileID: 7483916304868728630}
   m_Layer: 6
-  m_Name: Menemen
+  m_Name: Omlet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5117891360089831318
+--- !u!4 &2819957225938345799
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6790359624495435391}
+  m_GameObject: {fileID: 7045395667258534647}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 369.31882, y: 1.5349619, z: 355.14975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3552978459206172056}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4184582713542617477
+--- !u!33 &3385634835891795208
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6790359624495435391}
-  m_Mesh: {fileID: 6471959355928884045, guid: 6668453eee5c0384384cb8ff7cf5b252, type: 3}
---- !u!23 &7581946137699925025
+  m_GameObject: {fileID: 7045395667258534647}
+  m_Mesh: {fileID: -4122360196361273319, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
+--- !u!23 &4004876576314682453
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6790359624495435391}
+  m_GameObject: {fileID: 7045395667258534647}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,10 +68,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2484362132006946573, guid: 6668453eee5c0384384cb8ff7cf5b252, type: 3}
-  - {fileID: 1340098288272278275, guid: 6668453eee5c0384384cb8ff7cf5b252, type: 3}
-  - {fileID: 8045401301780679547, guid: 6668453eee5c0384384cb8ff7cf5b252, type: 3}
-  - {fileID: 1072642689894981515, guid: 6668453eee5c0384384cb8ff7cf5b252, type: 3}
+  - {fileID: -8816560676464809386, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
+  - {fileID: 7209472509955309453, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
+  - {fileID: -3724949503219123973, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
+  - {fileID: 2404597525545911610, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
+  - {fileID: -876546973899608171, guid: b7906fc7d16176b4b98eaf8dc877d276, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,49 +94,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8103278212361475142
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3552978459206172056}
-  - component: {fileID: 101176572475787259}
-  - component: {fileID: 2111658347035091936}
-  - component: {fileID: 1038011524608482246}
-  - component: {fileID: 5229723768154616742}
-  m_Layer: 6
-  m_Name: Menemen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3552978459206172056
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103278212361475142}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 366.4568, y: 1.3840218, z: 360.4233}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5117891360089831318}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &101176572475787259
+--- !u!65 &1354265835680287770
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103278212361475142}
+  m_GameObject: {fileID: 7045395667258534647}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -144,15 +113,15 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.1, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2111658347035091936
+  m_Size: {x: 0.19687131, y: 0.013133502, z: 0.19687131}
+  m_Center: {x: 0, y: 0.0065667517, z: 0}
+--- !u!54 &2063398690798670349
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103278212361475142}
+  m_GameObject: {fileID: 7045395667258534647}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -168,34 +137,34 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1038011524608482246
+--- !u!114 &252304348819102209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103278212361475142}
+  m_GameObject: {fileID: 7045395667258534647}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12d95652c0fa91544a6c371dafac4c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5229723768154616742
+--- !u!114 &7483916304868728630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8103278212361475142}
+  m_GameObject: {fileID: 7045395667258534647}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7608cb853349d54cb125b7d4e940c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodName: Menemen
-  Price: 5
+  FoodName: Omlet
+  Price: 50

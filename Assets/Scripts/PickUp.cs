@@ -80,6 +80,7 @@ public class PickUp : MonoBehaviour
             Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
             if (hit.collider.GetComponent<Food>() || hit.collider.GetComponent<Item>() || hit.collider.GetComponent<KargoDizim>())
             {
+                AudioManager.Instance.PlayPickUpSound();
                 inHandItem = hit.collider.gameObject;
 
                 Transform targetParent = GetCustomParent(inHandItem.name);
