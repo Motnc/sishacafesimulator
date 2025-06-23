@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using MemoryPool;
+using UnityEngine.SceneManagement;
 
 public class ShopOpenTimer : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class ShopOpenTimer : MonoBehaviour
         dayCompleteText.text = "1. Gün Tamamlandý.";
 
         npcPool.StopSpawning(); // Zamanlayýcý bittiðinde NPC spawn'ý durdur
+        SceneManager.LoadScene("MainMenu");
     }
 
     void UpdateTimerUI(float time)
